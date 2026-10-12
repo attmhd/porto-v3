@@ -10,25 +10,28 @@
   import ProfilePict from '../../assets/images/image1.jpg';
   import ProfileMascot from './ProfileMascot.svelte';
   import SpotifyNowPlaying from './SpotifyNowPlaying.svelte';
+  import background from '../../assets/header.mp4'
+
 </script>
 
 <section class="bg-white px-7 pb-7">
 
-  <!-- COVER -->
-  <div class="relative -mx-7 h-56">
-
-    <img
-      src="https://i.pinimg.com/1200x/3b/dc/25/3bdc25457c8a6672089254ba770d6685.jpg"
-      alt="Profile cover"
-      class="relative z-0 h-full w-full object-cover"
-    />
-
-    <!-- FOX MASCOT -->
-    <div class="relative z-30">
-      <ProfileMascot />
-    </div>
-
+ 
+<div class="relative -mx-7 h-70 overflow-hidden">
+  <video
+    src={background}
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute inset-0 z-0 h-full w-full object-cover object-[center_85%]"
+  ></video>
+  <!-- FOX MASCOT -->
+  <div class="absolute inset-0 z-30">
+    <ProfileMascot />
   </div>
+</div>
+
 
 
   <!-- PROFILE CONTENT -->

@@ -87,7 +87,7 @@
 
 <section class="bg-white">
   <!-- Section Header -->
-  <div class="border-y border-gray-300 px-7 py-5">
+  <div class=" border-gray-300 px-7 py-5">
     <h2 class="font-hand text-3xl leading-none text-black">
       Experience
 
@@ -100,7 +100,7 @@
   <!-- Experience List -->
   <div>
     {#each experiences as experience, index}
-      <article class="border-b border-gray-300">
+      <article class="border-t border-gray-300">
 
         <!-- Company + Role -->
         <div class="px-7 py-7">
