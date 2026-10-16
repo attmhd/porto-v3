@@ -1,6 +1,6 @@
 <script lang="ts">
   import './layout.css';
-  import icon from '$lib/assets/icon.png';
+  import icon from '$lib/assets/images/tangent.png';
   import CustomCursor from '$lib/components/CustomCursor.svelte';
   let { children } = $props();
 </script>

@@ -53,7 +53,8 @@
     <div class="flex justify-end pt-5">
 
       <a
-        href="/cv-muhammad-attan.txt"
+        href="https://drive.google.com/file/d/1ZUzloulgOKLxN1ImergkLxZKoKqDMCs5/view"
+        target="_blank"
         download
         aria-label="Download CV"
         title="Download CV"

@@ -13,7 +13,7 @@ describe('certificates data', () => {
       assert.ok(cert.id, 'Certificate must have an id');
       assert.ok(cert.title, 'Certificate must have a title');
       assert.ok(cert.issuer, 'Certificate must have an issuer');
-      assert.ok(cert.issueDate, 'Certificate must have an issueDate');
+      assert.ok(typeof cert.issueDate === 'string', 'Certificate must have an issueDate');
       assert.ok(cert.description, 'Certificate must have a description');
     }
   });

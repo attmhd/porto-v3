@@ -32,7 +32,7 @@
       </p>
 
       <a
-        href="mailto:hello@rasyid.dev"
+        href="mailto:attmhd2.work@gmail.com"
         class="group mt-2 inline-flex items-center gap-2 text-xs rounded-lg bg-white px-4 py-2 font-medium text-black transition hover:bg-gray-100"
       >
         Get in touch

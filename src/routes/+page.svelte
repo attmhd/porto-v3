@@ -1,7 +1,6 @@
 
 <script lang="ts">
   import PixelBlast from '$lib/components/PixelBlast.svelte';
-  import Intro from '$lib/components/Intro.svelte';
   import ProfileHeader from '$lib/components/profile/ProfileHeader.svelte';
   import ProfileNav from '$lib/components/profile/ProfileNav.svelte';
   import HomePage from '$lib/components/pages/HomePage.svelte';

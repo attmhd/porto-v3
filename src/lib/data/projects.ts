@@ -1,4 +1,3 @@
-
 export type Project = {
   id: string;
   number: string;
@@ -22,188 +21,193 @@ export type Project = {
   impacts: string[];
 };
 
-export const projects: Project[] = [
+type ProjectContent = {
+  id: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  githubUrl?: string;
+  demoUrl?: string;
+  category: string;
+};
+
+const projectContent: ProjectContent[] = [
   {
-    id: 'agraris-karir',
-    number: '02',
-    title: 'Agraris Karir',
-    description:
-      'Platform internal Agraris Indonesia untuk mengelola seluruh proses program magang, mulai dari pendaftaran hingga pengelolaan aktivitas peserta.',
-    role: 'Project Lead & Fullstack Developer',
-    year: '2026',
-    type: 'Internal Platform',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    href: '#',
-    image: '/projects/agraris-karir.png',
-    details:
-      'Platform internal untuk mengelola siklus program magang, termasuk proses pendaftaran, aktivitas peserta, dan pengelolaan program.',
-    category: 'Internal Platform',
-    gallery: ['/projects/agraris-karir.png'],
-    ownership: 'Agraris Indonesia',
-    team: 'Product Development Team',
-    demoUrl: "https://agrarisindonesia.com/karir/",
-    repositoryUrl: "https://github.com/rasyidMuhammad12/AgrarisCareer",
-    responsibilities: [
-      'Memimpin proses pengembangan platform.',
-      'Mengembangkan frontend dan backend menggunakan Next.js.',
-      'Membangun antarmuka berdasarkan kebutuhan pengguna.',
-      'Mengelola implementasi fitur dan alur program magang.'
-    ],
-    features: [
-      'Dashboard pengguna, mentor, dan admin.',
-      'Pengelolaan program magang.',
-      'Pencatatan aktivitas dan logbook peserta.',
-      'Pengelolaan informasi peserta dan mentor.'
-    ],
-    impacts: [
-      'Mendukung pengelolaan program magang dalam satu platform.',
-      'Membantu menyusun aktivitas peserta secara terstruktur.',
-      'Mempermudah koordinasi antara peserta, mentor, dan admin.'
-    ]
+    id: 'project-mlops-thesis',
+    title: 'MLOps for Federated Learning',
+    description: 'Undergraduate final project: heart disease classification with Flower and MLflow. Implemented experiment tracking, best-model registration, and centralized container logs with Docker, Grafana Loki, and Alloy.',
+    technologies: ['MLflow', 'Flower', 'Docker', 'Grafana Loki', 'Python', 'Scikit-learn'],
+    githubUrl: 'https://github.com/attmhd/tugas-akhir',
+    category: 'MLOps'
   },
   {
-    id: 'voltify',
-    number: '05',
-    title: 'Voltify',
-    description:
-    'Mobile app untuk membantu pengguna memantau penggunaan listrik, memprediksi tagihan, dan mendapatkan rekomendasi penghematan energi.',
-    role: 'Product Designer & Developer',
-    year: '2026',
-    type: 'Mobile App',
-    technologies: ['Flutter', 'Dart', 'UI/UX'],
-    href: '#',
-    image: '/projects/voltify.png',
-    details:
-    'Aplikasi untuk memantau konsumsi listrik, memperkirakan tagihan, dan memberikan rekomendasi penghematan energi.',
-    category: 'Energy & Mobile App',
-    gallery: ['/projects/voltify.png'],
-    ownership: 'Personal Product Concept',
-    team: 'Independent Project',
-    demoUrl: null,
-    repositoryUrl: null,
-    responsibilities: [
-      'Merancang konsep dan alur pengalaman pengguna.',
-      'Menyusun antarmuka aplikasi mobile.',
-      'Mengembangkan konsep fitur pemantauan penggunaan listrik.'
-    ],
-    features: [
-      'Pemantauan penggunaan listrik.',
-      'Prediksi biaya listrik.',
-      'Rekomendasi penghematan energi.',
-      'Informasi penggunaan listrik berdasarkan perangkat.'
-    ],
-    impacts: [
-      'Membantu pengguna memahami pola penggunaan listrik.',
-      'Memberikan gambaran biaya dan peluang penghematan energi.'
-    ]
+    id: 'project-karsakito-ai-backend',
+    title: 'Karsakito AI Backend Engine',
+    description: 'Built FastAPI services for Minangkabau translation, writing, and language etiquette. Integrated LLM providers through LiteLLM, Redis caching, input guardrails, and Langfuse tracing for latency and model usage.',
+    technologies: ['FastAPI', 'LiteLLM', 'Redis', 'Langfuse', 'Guardrails AI', 'Podman', 'GitHub Actions'],
+    githubUrl: 'https://github.com/attmhd/karsakito-ai-be',
+    category: 'Backend'
   },
   {
-    id: 'asn-berakhlak',
-    number: '01',
-    title: 'ASN-BerAKHLAK',
-    description:
-      'Platform web untuk membantu pengelolaan, pengumpulan, dan verifikasi bukti kegiatan ASN BerAKHLAK pada lingkungan pemerintahan.',
-    role: 'Fullstack Developer',
-    year: '2025',
-    type: 'Government',
-    technologies: ['Next.js', 'Laravel', 'MySQL'],
-    href: '#',
-    image: '/projects/asn-berakhlak.png',
-    details:
-      'Platform untuk mendukung proses pengumpulan dan verifikasi bukti kegiatan ASN BerAKHLAK pada lingkungan pemerintahan.',
-    category: 'Government Platform',
-    gallery: ['/projects/asn-berakhlak.png', '/projects/asn-berakhlak.png'],
-    ownership: 'Government Web Project',
-    team: 'Development Team',
-    demoUrl: null,
-    repositoryUrl: null,
-    responsibilities: [
-      'Mengembangkan antarmuka dan fungsionalitas aplikasi.',
-      'Mengintegrasikan frontend dengan API backend.',
-      'Mendukung pengelolaan dan verifikasi bukti kegiatan.'
-    ],
-    features: [
-      'Pengunggahan bukti kegiatan ASN BerAKHLAK.',
-      'Pengelolaan data OPD.',
-      'Proses verifikasi bukti kegiatan.',
-      'Dashboard berdasarkan peran pengguna.'
-    ],
-    impacts: [
-      'Membantu memusatkan pengumpulan bukti kegiatan.',
-      'Mendukung proses verifikasi yang lebih terstruktur.',
-      'Mempermudah pengelolaan data kegiatan.'
-    ]
+    id: 'project-klop-ai-backend',
+    title: 'Klop! AI Assessment Backend',
+    description: 'Hackathon project: developed APIs for generating technical assessments and scoring answers with Qwen and Kolosal AI. Deployed the backend to a DigitalOcean Droplet with Cloudflare routing and Caddy HTTPS.',
+    technologies: ['FastAPI', 'Docker', 'Qwen', 'Caddy', 'DigitalOcean', 'Kolosal AI'],
+    githubUrl: 'https://github.com/attmhd/klop-ai-be',
+    demoUrl: 'https://klop-ai.vercel.app/',
+    category: 'Backend'
   },
   {
-    id: 'dident',
-    number: '04',
-    title: 'dIdent',
-    description:
-    'Platform digital identity verification yang menggabungkan OCR, face verification, blockchain, dan Web3 untuk proses verifikasi identitas.',
-    role: 'Fullstack Developer',
-    year: '2025',
-    type: 'Web3 / Blockchain',
-    technologies: ['Next.js', 'ICP', 'Motoko'],
-    href: '#',
-    image: '/projects/dident.png',
-    details:
-      'Platform verifikasi identitas digital yang menggabungkan ekstraksi informasi dokumen, verifikasi wajah, dan teknologi blockchain.',
-    category: 'Blockchain & Web3',
-    gallery: ['/projects/dident.png'],
-    ownership: 'Digital Identity Project',
-    team: 'Project Development Team',
-    demoUrl: null,
-    repositoryUrl: null,
-    responsibilities: [
-      'Mengembangkan antarmuka aplikasi.',
-      'Mengintegrasikan proses OCR dan verifikasi wajah.',
-      'Menghubungkan frontend dengan backend berbasis Internet Computer.',
-      'Mendukung integrasi fitur Web3.'
-    ],
-    features: [
-      'Ekstraksi informasi dokumen menggunakan OCR.',
-      'Verifikasi wajah.',
-      'Integrasi blockchain melalui Internet Computer.',
-      'Pengelolaan alur verifikasi identitas.'
-    ],
-    impacts: [
-      'Menggabungkan beberapa proses verifikasi dalam satu alur.',
-      'Mengeksplorasi penggunaan blockchain untuk identitas digital.'
-    ]
+    id: 'project-order-processing-microservices',
+    title: 'Order Processing Microservices',
+    description: 'Learning project connecting order, payment, and inventory services through Go, gRPC, and RabbitMQ. Explored event-driven workflows, message retries, dead-letter queues, and separate PostgreSQL databases with Docker Compose.',
+    technologies: ['Go', 'RabbitMQ', 'PostgreSQL', 'gRPC', 'Redis', 'Docker Compose'],
+    githubUrl: 'https://github.com/attmhd/order-processing-microservices',
+    category: 'Backend'
   },
   {
-    id: 'sirusun',
-    number: '03',
-    title: 'Sirusun',
-    description:
-      'Website layanan Pemerintah Provinsi Palembang untuk membantu masyarakat melakukan pemesanan dan pengelolaan hunian rumah susun.',
-    role: 'Frontend Developer',
-    year: '2024',
-    type: 'Government',
-    technologies: ['React', 'JavaScript', 'Tailwind CSS'],
-    href: '#',
-    image: '/projects/sirusun.png',
-    details:
-      'Website layanan rumah susun dengan fokus pada pengalaman pengguna dalam melakukan pemesanan dan pengelolaan hunian.',
-    category: 'Government Web Application',
-    gallery: ['/projects/sirusun.png'],
-    ownership: 'Government Web Project',
-    team: 'Development Team',
-    demoUrl: "https://sirusun.palembang.go.id/",
-    repositoryUrl: "https://github.com/rasyidMuhammad12/sirusun",
-    responsibilities: [
-      'Mengembangkan antarmuka website.',
-      'Menerapkan desain antarmuka menjadi halaman web.',
-      'Memastikan tampilan responsif pada berbagai ukuran layar.'
-    ],
-    features: [
-      'Informasi layanan rumah susun.',
-      'Antarmuka pemesanan hunian.',
-      'Pengelolaan informasi hunian.'
-    ],
-    impacts: [
-      'Menyediakan akses informasi hunian melalui website.',
-      'Mendukung digitalisasi layanan pengelolaan rumah susun.'
-    ]
+    id: 'project-ml-training-serving-monitoring',
+    title: 'ML Training, Serving & Monitoring',
+    description: 'Course project exploring the ML lifecycle through model experiments, a CI workflow, API serving, and monitoring. Combined FastAPI and Docker with Prometheus and Grafana to practice operating an ML service.',
+    technologies: ['Docker', 'FastAPI', 'Prometheus', 'Grafana', 'DagsHub', 'GitHub Actions'],
+    githubUrl: 'https://github.com/attmhd/proyek-akhir-msml',
+    category: 'MLOps'
   },
+  {
+    id: 'project-simobi-review-sentiment',
+    title: 'Simobi+ Review Sentiment Analysis',
+    description: 'Processed app reviews and compared SVM, Bi-LSTM, and IndoBERT for sentiment classification. Used manual annotation and pseudo-labeling to explore learning from limited labeled data, with separate preprocessing and evaluation notebooks.',
+    technologies: ['Python', 'IndoBERT', 'Bi-LSTM', 'Label Studio', 'Pseudo-labeling'],
+    githubUrl: 'https://github.com/attmhd/sentiment-analysis-simobiplus',
+    category: 'AI/ML'
+  },
+  {
+    id: 'project-go-pos-backend',
+    title: 'Go POS Backend',
+    description: 'Final project for a Go training program: a simple point-of-sale backend using Gin and PostgreSQL. Practiced API development and database integration for a small business workflow.',
+    technologies: ['Go', 'Gin Gonic', 'PostgreSQL', 'Supabase'],
+    githubUrl: 'https://github.com/attmhd/jago-golang-p1',
+    category: 'Backend'
+  },
+  {
+    id: 'project-family-gps-tracker',
+    title: 'Family GPS Tracker',
+    description: 'Backend learning project using a family location-tracking scenario to explore Apache Kafka. Used Go and Redis alongside event messaging to practice handling location updates.',
+    technologies: ['Go', 'Apache Kafka', 'Redis'],
+    githubUrl: 'https://github.com/attmhd/fam-gps',
+    category: 'Backend'
+  },
+  {
+    id: 'project-modern-ml-template',
+    title: 'Modern ML Project Template',
+    description: 'A reusable starting point for ML experiments, using Cookiecutter for project scaffolding and uv for Python dependencies. Built to practice keeping experiment code and project setup organized.',
+    technologies: ['Python', 'uv', 'Cookiecutter'],
+    githubUrl: 'https://github.com/attmhd/ml-projects-template',
+    category: 'MLOps'
+  },
+  {
+    id: 'project-indonesian-legal-llm',
+    title: 'Indonesian Legal LLM Lab',
+    description: 'An experimental project exploring Qwen 2.5 1.5B fine-tuning for Indonesian legal text. Used Unsloth and QLoRA alongside retrieval experiments to study adapting a small language model to a specific domain.',
+    technologies: ['Unsloth', 'QLoRA', 'Qwen', 'RAG', 'Hugging Face'],
+    githubUrl: 'https://github.com/attmhd/indonesian-legal-llm-lab',
+    category: 'AI/ML'
+  },
+  {
+    id: 'project-garbage-classification',
+    title: 'Garbage Image Classification',
+    description: 'An image classification experiment using EfficientNetV2S and transfer learning. Practiced adapting a pretrained vision model to garbage classification.',
+    technologies: ['EfficientNetV2S', 'Transfer Learning', 'CNN'],
+    githubUrl: 'https://github.com/attmhd/garbage-classification',
+    category: 'AI/ML'
+  },
+  {
+    id: 'project-diffusion-playground',
+    title: 'Diffusion Model Playground',
+    description: 'Course project exploring text-to-image and image-to-image generation with Stable Diffusion. Used Streamlit to build an interface for experimenting with model inputs and outputs.',
+    technologies: ['Stable Diffusion', 'Streamlit', 'Python'],
+    githubUrl: 'https://github.com/attmhd/proyek-akhir-bfgai',
+    category: 'AI/ML'
+  },
+  {
+    id: 'project-ai-web-application',
+    title: 'AI in a Web Application',
+    description: 'Course project integrating a machine learning model into a web application with TensorFlow.js. Explored browser-side inference and progressive web app fundamentals.',
+    technologies: ['TensorFlow.js', 'PWA'],
+    githubUrl: 'https://github.com/attmhd/penerapan-ai-di-aplikasi-web',
+    category: 'AI/ML'
+  },
+  {
+    id: 'project-padiah-language',
+    title: 'Padiah Language',
+    description: 'A Python programming language experiment. Built as a personal project to explore language implementation concepts.',
+    technologies: ['Python'],
+    githubUrl: 'https://github.com/attmhd/padiah-language',
+    category: 'Backend'
+  },
+  {
+    id: 'project-simple-laundry',
+    title: 'Simple Laundry Application',
+    description: 'Final project for an introductory programming course. Used C++ to model a simple laundry workflow and practice foundational programming concepts.',
+    technologies: ['C++'],
+    githubUrl: 'https://github.com/attmhd/tugas_akhir_c-',
+    category: 'Backend'
+  },
+  {
+    id: 'project-minang-language-dictionary',
+    title: 'Minang Language Dictionary',
+    description: 'Team project for Firetech Hackathon 2025, recognized for Most Creative Idea. Led the concept and contributed to a collaborative dictionary for regional language preservation, with vocabulary contributions and a leaderboard.',
+    technologies: ['TypeScript', 'Vite', 'Supabase', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/attmhd/hackathon-project-firetech',
+    demoUrl: 'https://ml.natta.biz.id/',
+    category: 'Web Application'
+  },
+  {
+    id: 'project-lecturer-portfolio',
+    title: 'Lecturer Portfolio & Teaching Materials',
+    description: "Web programming course project adapted into a lecturer's portfolio and teaching-materials website. Practiced implementing a complete Laravel application for an academic use case.",
+    technologies: ['Laravel', 'Vite', 'Tailwind CSS'],
+    demoUrl: 'https://materiajar.nisapage.my.id/',
+    category: 'Web Application'
+  },
+  {
+    id: 'project-youtube-downloader',
+    title: 'YouTube Downloader',
+    description: 'A Python utility built around yt-dlp for downloading videos. A small project in integrating an existing tool into an application workflow.',
+    technologies: ['Python', 'yt-dlp'],
+    githubUrl: 'https://github.com/attmhd/yt-downloader',
+    category: 'Utility'
+  },
+  {
+    id: 'project-tamparin',
+    title: 'Tamparin',
+    description: 'A small stress-relief web experiment built with Vite and TypeScript. Used to practice implementing an interactive application with basic interface styling.',
+    technologies: ['TypeScript', 'Vite', 'Tailwind CSS'],
+    demoUrl: 'https://tamparin.attmhd.me/',
+    category: 'Web Experiment'
+  }
 ];
+
+export const projects: Project[] = projectContent.map((project, index) => ({
+  id: project.id,
+  number: String(index + 1).padStart(2, '0'),
+  title: project.title,
+  description: project.description,
+  role: project.category,
+  year: 'Portfolio',
+  type: project.category,
+  technologies: project.technologies,
+  href: project.demoUrl ?? project.githubUrl ?? '#',
+  image: projectFallback,
+  details: project.description,
+  category: project.category,
+  gallery: [projectFallback],
+  ownership: 'Personal Project',
+  team: 'Independent Project',
+  demoUrl: project.demoUrl ?? null,
+  repositoryUrl: project.githubUrl ?? null,
+  responsibilities: [],
+  features: [],
+  impacts: []
+}));
+import projectFallback from '$lib/assets/images/404.gif';

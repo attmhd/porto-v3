@@ -16,3 +16,5 @@
 - [x] Task 13: Write failing test suite for ProfileHeader metadata layout (TDD Red)
 - [x] Task 14: Update ProfileHeader metadata layout to group social links right-aligned (TDD Green)
 - [x] Task 15: Verify test suite, svelte-check, and build
+- [x] Task 16: Verify and commit updates across experiences, tech stack, projects, and certificates
+
