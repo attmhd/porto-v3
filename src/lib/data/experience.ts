@@ -1,3 +1,9 @@
+import logoAvenir from '$lib/assets/images/logo-avenir.png';
+import logoOrbit from '$lib/assets/images/logo-orbit-future-academy.png';
+import logoStifarm from '$lib/assets/images/logo-stifarm.png';
+import logoAppskep from '$lib/assets/images/logo-appskep.jpeg';
+import logoBangkit from '$lib/assets/images/logo-bangkit.png';
+
 export type ExperienceItem = {
   company: string;
   role: string;
@@ -13,7 +19,7 @@ export const experiences: ExperienceItem[] = [
     company: 'PT. Avenir Fortuna Corporindo',
     role: 'Web Developer',
     type: 'Remote',
-    logo: 'src/lib/assets/images/logo-avenir.png',
+    logo: logoAvenir,
     period: 'Sep 2026',
     description:
       'Developed and maintained a Laravel web application by implementing features, fixing bugs, and improving application workflows. Improved role-based access and registration flows, troubleshot email-service issues, and implemented HTTP security headers that improved the SecurityHeaders.com evaluation from Grade F to Grade A.',
@@ -23,7 +29,7 @@ export const experiences: ExperienceItem[] = [
     company: 'Orbit Future Academy',
     role: 'Cloud Computing Cohort',
     type: 'Remote',
-    logo: 'src/lib/assets/images/logo-orbit-future-academy.png',
+    logo: logoOrbit,
     period: 'Mar 2026 - Jun 2026',
     description:
       'Completed hands-on training in cloud computing fundamentals, Linux, networking, databases, security, Python, and AWS technologies.',
@@ -34,7 +40,7 @@ export const experiences: ExperienceItem[] = [
     role: 'Android Developer',
     type: 'Padang, Indonesia',
     period: 'Sep 2025 - Oct 2025',
-    logo: 'src/lib/assets/images/logo-stifarm.png',
+    logo: logoStifarm,
     description:
       'Built an Android POS system using Kotlin and Jetpack Compose to digitize laboratory equipment and material usage transactions, replacing manual recording. Integrated PDF invoice generation and thermal receipt printing to streamline transaction documentation and reporting.',
     tags: ['Kotlin', 'Jetpack Compose', 'Android', 'POS', 'PDF', 'Thermal Printing']
@@ -43,7 +49,7 @@ export const experiences: ExperienceItem[] = [
     company: 'PT. Aplikasi Kriya Pratama',
     role: 'AI Intern',
     type: 'Padang, Indonesia',
-    logo: 'src/lib/assets/images/logo-appskep.jpeg',
+    logo: logoAppskep,
     period: 'Jul 2025 - Sep 2025',
     description:
       'Designed and developed a Retrieval-Augmented Generation chatbot for contextual question answering from educational video content. Collaborated with the CTO on rapid prototyping and technical validation, integrating AI, backend, vector search, and caching components into a deployable architecture.',
@@ -53,7 +59,7 @@ export const experiences: ExperienceItem[] = [
     company: 'Bangkit Academy',
     role: 'Machine Learning Cohort',
     type: 'Remote',
-    logo: 'src/lib/assets/images/logo-bangkit.png',
+    logo: logoBangkit,
     period: 'Sep 2024 - Dec 2024',
     description:
       'Google-backed program focused on machine learning, TensorFlow, and cloud deployment.',

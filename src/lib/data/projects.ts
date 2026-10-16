@@ -178,14 +178,6 @@ const projectContent: ProjectContent[] = [
     githubUrl: 'https://github.com/attmhd/yt-downloader',
     category: 'Utility'
   },
-  {
-    id: 'project-tamparin',
-    title: 'Tamparin',
-    description: 'A small stress-relief web experiment built with Vite and TypeScript. Used to practice implementing an interactive application with basic interface styling.',
-    technologies: ['TypeScript', 'Vite', 'Tailwind CSS'],
-    demoUrl: 'https://tamparin.attmhd.me/',
-    category: 'Web Experiment'
-  }
 ];
 
 export const projects: Project[] = projectContent.map((project, index) => ({

@@ -18,4 +18,7 @@
 - [x] Task 15: Verify test suite, svelte-check, and build
 - [x] Task 16: Verify and commit updates across experiences, tech stack, projects, and certificates
 - [x] Task 17: Resolve Vercel build failure by downgrading @sveltejs/adapter-vercel to compatible version ^6.3.4
+- [x] Task 18: Write failing test suite for experience logo asset imports (TDD Red)
+- [x] Task 19: Fix experience logo asset imports and verify in production build/preview (TDD Green)
+- [x] Task 20: Verify preview, test suite, svelte-check, and build
 
