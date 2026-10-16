@@ -15,7 +15,7 @@ export const certificates: Certificate[] = [
   {
     id: 'its-python',
     title: 'ITS Python',
-    issuer: 'Institut Teknologi Sepuluh Nopember',
+    issuer: 'Certiport',
     pdf: 'https://drive.google.com/file/d/1vxQaQQuCfa3g8Bnui-Zp7feS2vshnhJj/view?usp=sharing',
     skills: ['Python', 'Programming']
   },
@@ -29,7 +29,7 @@ export const certificates: Certificate[] = [
   {
     id: 'agile-scrum-fundamentals',
     title: 'Agile Scrum Fundamentals',
-    issuer: 'Agile Scrum',
+    issuer: 'MindMagine',
     pdf: 'https://drive.google.com/file/d/1s8TOSbyDPv16mI1iGBD3DFN6qPK5802w/view?usp=sharing',
     skills: ['Agile', 'Scrum', 'Team Collaboration']
   },

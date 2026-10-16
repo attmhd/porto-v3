@@ -18,21 +18,21 @@
   <div class="relative">
     <!-- OPEN TO WORK THOUGHT BUBBLE -->
     <div
-      class="animate-bounce-slow absolute -top-22 left-22 z-50 drop-shadow-md"
+      class="animate-bounce-slow absolute -top-20 left-20 z-50 drop-shadow-md sm:-top-22 sm:left-22"
     >
       <div
         data-testid="thought-bubble"
-        class="rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium whitespace-nowrap text-gray-800"
+        class="max-w-[calc(100vw-10rem)] rounded-2xl rounded-bl-md border border-gray-200 bg-white px-3.5 py-2 text-xs font-medium whitespace-normal text-gray-800 shadow-sm sm:max-w-none sm:whitespace-nowrap"
       >
         Hire me bang 🙏
       </div>
       <span
         data-testid="thought-dot-lg"
-        class="absolute top-full left-3 mt-1 h-3 w-3 rounded-full border border-gray-300 bg-white"
+        class="absolute top-full left-3 mt-1 h-3 w-3 rounded-full border border-gray-200 bg-white"
       ></span>
       <span
         data-testid="thought-dot-sm"
-        class="absolute top-full left-0.5 mt-4.5 h-1.5 w-1.5 rounded-full border border-gray-300 bg-white"
+        class="absolute top-full left-0.5 mt-4.5 h-1.5 w-1.5 rounded-full border border-gray-200 bg-white"
       ></span>
     </div>
 
@@ -82,7 +82,7 @@
 
     <!-- METADATA -->
     <div
-      class="mt-6 flex flex-wrap items-center justify-between md:gap-x-6 sm:gap-x-3 gap-y-3 text-sm text-gray-500"
+      class="mt-6 flex flex-col items-start gap-y-4 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between sm:gap-x-6"
     >
       <!-- INFO ITEMS -->
       <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -102,7 +102,7 @@
       </div>
 
       <!-- SOCIAL MEDIA -->
-      <div class="ml-auto flex items-center gap-4">
+      <div class="flex w-full items-center gap-4 sm:ml-auto sm:w-auto">
         <!-- LINKEDIN -->
         <a
           href="https://linkedin.com/in/attmhd"

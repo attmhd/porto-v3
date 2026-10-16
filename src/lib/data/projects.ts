@@ -46,6 +46,7 @@ const projectContent: ProjectContent[] = [
     description: 'Built FastAPI services for Minangkabau translation, writing, and language etiquette. Integrated LLM providers through LiteLLM, Redis caching, input guardrails, and Langfuse tracing for latency and model usage.',
     technologies: ['FastAPI', 'LiteLLM', 'Redis', 'Langfuse', 'Guardrails AI', 'Podman', 'GitHub Actions'],
     githubUrl: 'https://github.com/attmhd/karsakito-ai-be',
+    demoUrl: 'https://innovation.pidi.id/inovasi/karsakito-ekosistem-produktivitas-ai-bahasa-nusantara',
     category: 'Backend'
   },
   {
@@ -202,4 +203,4 @@ export const projects: Project[] = projectContent.map((project, index) => ({
   features: [],
   impacts: []
 }));
-import projectFallback from '$lib/assets/images/404.gif';
+import projectFallback from '$lib/assets/images/404.png';

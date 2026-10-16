@@ -93,7 +93,7 @@
           <img
             src={project.gallery[activeImage]}
             alt={`${project.title} preview ${activeImage + 1}`}
-            class="aspect-video object-cover py-7"
+            class="h-full w-full object-cover"
           />
         </div>
 

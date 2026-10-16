@@ -16,6 +16,17 @@
           <p class="text-xs text-gray-500">{item.event}</p>
         </div>
         <span class="font-mono text-xs text-gray-500">{item.year}</span>
+        {#if item.url}
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`View ${item.title} post`}
+            class="text-gray-500 transition hover:text-black"
+          >
+            <Icon icon="lucide:external-link" width={16} height={16} />
+          </a>
+        {/if}
       </li>
     {/each}
   </ul>
