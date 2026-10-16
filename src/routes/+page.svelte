@@ -6,14 +6,14 @@
   import ProfileNav from '$lib/components/profile/ProfileNav.svelte';
   import HomePage from '$lib/components/pages/HomePage.svelte';
   import ProjectsPage from '$lib/components/pages/ProjectsPage.svelte';
-  import BlogPage from '$lib/components/pages/BlogPage.svelte';
-  import GalleryPage from '$lib/components/pages/GalleryPage.svelte';
+  import ProductPage from '$lib/components/pages/ProductPage.svelte';
+  import CertificatesPage from '$lib/components/pages/CertificatesPage.svelte';
   import ProjectDetail from '$lib/components/profile/ProjectDetail.svelte';
   import Footer from '$lib/components/profile/Footer.svelte';
 
   import type { Project } from '$lib/data/projects';
 
-  type MenuName = 'Home' | 'Projects' | 'Blog' | 'Gallery';
+  type MenuName = 'Home' | 'Projects' | 'Product' | 'Certificates';
 
   let activeMenu = $state<MenuName>('Home');
   let selectedProject = $state<Project | null>(null);
@@ -48,7 +48,7 @@
   transparent
 />
 
-<Intro />
+<!-- <Intro /> -->
 
 <main class="relative z-10 border-x border-gray-200">
   <div class="mx-auto max-w-3xl bg-white">
@@ -59,10 +59,6 @@
       onMenuChange={changeMenu}
     />
 
-    <div
-      class="h-10 border-y border-gray-200"
-      style={separatorStyle}
-    ></div>
 
     {#if selectedProject}
       <ProjectDetail
@@ -73,10 +69,10 @@
       <HomePage onSelectProject={openProject} />
     {:else if activeMenu === 'Projects'}
       <ProjectsPage onSelectProject={openProject} />
-    {:else if activeMenu === 'Blog'}
-      <BlogPage />
-    {:else if activeMenu === 'Gallery'}
-      <GalleryPage />
+    {:else if activeMenu === 'Product'}
+      <ProductPage onSelectProject={openProject} />
+    {:else if activeMenu === 'Certificates'}
+      <CertificatesPage />
     {/if}
       <div
   class="h-10 border-y border-gray-200"

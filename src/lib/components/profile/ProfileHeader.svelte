@@ -1,31 +1,21 @@
 <script lang="ts">
-  import {
-    MapPin,
-    Globe,
-    Ghost,
-    Link,
-    Mail
-  } from 'lucide-svelte';
-
+  import Icon from '@iconify/svelte';
   import ProfilePict from '../../assets/images/image1.jpg';
   import ProfileMascot from './ProfileMascot.svelte';
   import SpotifyNowPlaying from './SpotifyNowPlaying.svelte';
-  import background from '../../assets/header.mp4'
-
+  import background from '../../assets/images/background.jpg';
+  import { profileData } from '$lib/data/profile';
 </script>
 
 <section class="bg-white px-7 pb-7">
 
- 
+
 <div class="relative -mx-7 h-70 overflow-hidden">
-  <video
+  <img
     src={background}
-    autoplay
-    muted
-    loop
-    playsinline
+    alt=""
     class="absolute inset-0 z-0 h-full w-full object-cover object-[center_85%]"
-  ></video>
+  />
   <!-- FOX MASCOT -->
   <div class="absolute inset-0 z-30">
     <ProfileMascot />
@@ -50,7 +40,7 @@
 
         <img
           src={ProfilePict}
-          alt="Muhammad Rasyid Al Ridho Lubis"
+          alt="Muhammad Attan"
           class="h-full w-full object-cover"
         />
 
@@ -59,21 +49,22 @@
     </div>
 
 
-    <!-- GITHUB COUNT -->
+    <!-- DOWNLOAD CV -->
     <div class="flex justify-end pt-5">
 
       <a
-        href="https://github.com"
-        target="_blank"
-        rel="noreferrer"
+        href="/cv-muhammad-attan.txt"
+        download
+        aria-label="Download CV"
+        title="Download CV"
         class="z-40 flex items-center gap-2 text-sm text-gray-500 transition hover:text-black"
       >
-        <Ghost
-          size={20}
-          strokeWidth={1.8}
+        <Icon
+          icon="lucide:download"
+          width={20}
+          height={20}
         />
 
-        <span>4</span>
       </a>
 
     </div>
@@ -83,11 +74,11 @@
     <div class="mt-10">
 
       <h1 class="text-3xl font-semibold tracking-tight text-black">
-        Muhammad Rasyid Al Ridho
+        Muhammad Attan
       </h1>
 
       <p class="text-base text-gray-500">
-        @rsyd.mhmmd
+        @attmhd
       </p>
 
     </div>
@@ -95,94 +86,83 @@
 
     <!-- BIO -->
     <p class="mt-6 max-w-2xl text-justify text-[17px] leading-tight text-gray-800">
-      Fullstack Developer & UI/UX Designer based in Indonesia.
-      I like designing things. I like coding them too. Instead of
-      picking one, I ended up doing both. Who enjoys turning random
-      ideas, experiments, and a bit of curiosity into websites that
-      look good and actually work.
+      {profileData.bio}
     </p>
 
 
     <!-- METADATA -->
-    <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-gray-500">
+    <div class="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 text-sm text-gray-500">
 
-      <!-- ROLE -->
-      <div class="flex items-center gap-2">
-        <Globe
-          size={18}
-          strokeWidth={1.8}
-        />
+      <!-- INFO ITEMS -->
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <!-- ROLE -->
+        <div class="flex items-center gap-2">
+          <Icon
+            icon="lucide:briefcase"
+            width={18}
+            height={18}
+          />
 
-        <span>Fullstack Developer</span>
+          <span>Software Engineer</span>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="flex items-center gap-2">
+          <Icon
+            icon="lucide:map-pin"
+            width={18}
+            height={18}
+          />
+
+          <span>Mars</span>
+        </div>
+
       </div>
 
+      <!-- SOCIAL MEDIA -->
+      <div class="ml-auto flex items-center gap-4">
+        <!-- LINKEDIN -->
+        <a
+          href="https://linkedin.com/in/attmhd"
+          target="_blank"
+          rel="noreferrer"
+          class="flex items-center gap-2 transition hover:text-black"
+        >
+          <Icon
+            icon="simple-icons:linkedin"
+            width={18}
+            height={18}
+          />
+        </a>
 
-      <!-- LOCATION -->
-      <div class="flex items-center gap-2">
-        <MapPin
-          size={18}
-          strokeWidth={1.8}
-        />
+        <!-- GITHUB -->
+        <a
+          href="https://github.com/attmhd"
+          target="_blank"
+          rel="noreferrer"
+          class="flex items-center gap-2 transition hover:text-black"
+        >
+          <Icon
+            icon="simple-icons:github"
+            width={18}
+            height={18}
+          />
+        </a>
 
-        <span>Indonesia</span>
+        <!-- MEDIUM -->
+        <a
+          href="https://attmhd.medium.com/"
+          target="_blank"
+          rel="noreferrer"
+          class="flex items-center gap-2 transition hover:text-black"
+        >
+          <Icon
+            icon="simple-icons:medium"
+            width={18}
+            height={18}
+          />
+        </a>
       </div>
-
-
-      <!-- WEBSITE -->
-      <a
-        href="/"
-        class="flex items-center gap-2 transition hover:text-black"
-      >
-        <Globe
-          size={18}
-          strokeWidth={1.8}
-        />
-
-        <span>rasyid.dev</span>
-      </a>
-
-    </div>
-
-
-    <!-- DIVIDER -->
-    <div class="my-6 h-px bg-gray-200"></div>
-
-
-    <!-- SOCIAL BUTTONS -->
-    <div class="flex min-w-0 items-center gap-3">
-
-      <!-- GITHUB -->
-      <a
-        href="https://github.com"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="GitHub"
-        class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gray-200 text-gray-500 transition hover:border-gray-300 hover:text-black"
-      >
-        <Ghost size={19} />
-      </a>
-
-
-      <!-- LINKEDIN -->
-      <a
-        href="https://linkedin.com"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="LinkedIn"
-        class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gray-200 text-gray-500 transition hover:border-gray-300 hover:text-black"
-      >
-        <Link size={19} />
-      </a>
-
-
-      <!-- EMAIL -->
-      <a
-        href="mailto:hello@rasyid.dev"
-        aria-label="Email"
-        class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gray-200 text-gray-500 transition hover:border-gray-300 hover:text-black"
-      >
-        <Mail size={19} />
-      </a>
 
     </div>
 

@@ -1,6 +1,6 @@
 
 <script lang="ts">
-  import { ArrowUpRight } from 'lucide-svelte';
+  import Icon from '@iconify/svelte';
   import footer from '../../assets/bawah.mp4';
 </script>
 
@@ -36,8 +36,10 @@
         class="group mt-2 inline-flex items-center gap-2 text-xs rounded-lg bg-white px-4 py-2 font-medium text-black transition hover:bg-gray-100"
       >
         Get in touch
-        <ArrowUpRight
-          size={15}
+        <Icon
+          icon="lucide:arrow-up-right"
+          width={15}
+          height={15}
           class="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
         />
       </a>

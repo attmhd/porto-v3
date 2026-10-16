@@ -6,6 +6,11 @@
 </script>
 
 <svelte:head>
+  <title>Muhammad Attan | Software Engineer</title>
+  <meta
+    name="description"
+    content="Portfolio of Muhammad Attan, an Informatics Engineering graduate focused on software engineering, backend systems, and AI/ML."
+  />
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"

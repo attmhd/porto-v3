@@ -1,82 +1,6 @@
 <script lang="ts">
-  import { ChevronDown, Sparkles } from 'lucide-svelte';
-  import Bogo from '../../assets/images/bogo.png'
-
-  type ExperienceItem = {
-    company: string;
-    role: string;
-    type: string;
-    period: string;
-    duration: string;
-    description: string;
-    tags: string[];
-    logo: string;
-  };
-
-  const experiences: ExperienceItem[] = [
-    {
-      company: 'PT Agraris Indonesia',
-      role: 'Web Developer',
-      type: 'Padang',
-      period: '07.2026 - Present',
-      duration: '3m',
-      logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BM5fjrqDLG4A7RKU6sHDstLnFbxjI_DZ79ucR2L-qw&s=10',
-      description:
-        'Led the development Of Agraris Karir, an internship management portal by Agraris Indonesia, overseeing the participant lifecycle from registration to program completion and developing the frontend for a structured user experience.',
-      tags: [
-        'Web Development',
-        'Frontend Development',
-        'Team Leadership',
-        'Project Management'
-      ]
-    },
-    {
-      company: 'Diskominfo Sumatera Barat',
-      role: 'Fullstack Developer Intern',
-      type: 'West Sumatra',
-      period: '2025',
-      duration: '3m',
-      logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTP_7hpnymccK7czcq_r2UxK9TUf8flnRWEBt3Y_3YqQ&s=10',
-      description:
-        'Developed a responsive web application to support the management and implementation Of ASN BerAKHLAK program.',
-      tags: [
-        'Next.js',
-        'Fullstack Development',
-      ]
-    },
-    {
-      company: 'Bogo House',
-      role: 'Frontend Developer and Ul Designer',
-      type: 'Padang',
-      period: '2024 - 2025',
-      duration: '1y',
-      logo: Bogo,
-      description:
-        'Design and developed a responsive web app for managing publichousing availability and registration.Collaborated with local government stakeholders to streamline admin workflows.',
-      tags: [
-        'UI/UX Design',
-        'Web Development',
-        'Frontend Development',
-        'Web Design',
-      ]
-    },
-    {
-      company: 'Sania Studio',
-      role: 'Graphic Designer',
-      type: 'Pekanbaru',
-      period: '2021 - 2023',
-      duration: '2y',
-      logo: 'https://i.pinimg.com/1200x/ff/59/4f/ff594f190fa722088ae0817cda43c480.jpg',
-      description:
-        'Led the development of Agraris Karir, an internal platform designed to manage the internship program lifecycle. Responsible for planning features, coordinating development, and implementing the application from frontend to backend.',
-      tags: [
-        'Graphic Design',
-        'Visual Design',
-        'Typography',
-      ]
-    },
-
-  ];
+  import Icon from '@iconify/svelte';
+  import { experiences } from '$lib/data/experience';
 
   let activeIndex = $state<number | null>(null);
 
@@ -109,15 +33,17 @@
           <div class="flex items-center gap-5">
 
             <!-- Company Logo -->
-          <div
-  class="flex h-10 w-10 shrink-0 items-center justify-center"
->
-  <img
-    src={experience.logo}
-    alt={experience.company}
-    class="max-h-10 max-w-10 rounded-xl object-cover"
-  />
-</div>
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-xs font-semibold text-gray-500">
+            {#if experience.logo}
+              <img
+                src={experience.logo}
+                alt={experience.company}
+                class="max-h-10 max-w-10 rounded-xl object-cover"
+              />
+            {:else}
+              {experience.company.slice(0, 2).toUpperCase()}
+            {/if}
+          </div>
             <!-- Company Name -->
             <h3
               class="text-xl font-semibold tracking-tight text-black"
@@ -133,18 +59,8 @@
             <!-- Timeline Icon + Line -->
             <div class="relative flex w-10 shrink-0 justify-center">
 
-              <!-- Icon -->
-              <div
-                class="relative z-10 flex h-10 w-10 items-center justify-center  text-gray-500"
-              >
-                <Sparkles
-                  size={18}
-                  strokeWidth={1.8}
-                />
-              </div>
-
               <!-- Vertical Line -->
-              {#if index < experiences.length}
+              {#if index < experiences.length - 1}
                 <div
                   class="absolute left-1/2 top-10 -bottom-7 w-px -translate-x-1/2 bg-gray-200"
                 ></div>
@@ -168,9 +84,10 @@
                   {experience.role}
                 </span>
 
-                <ChevronDown
-                  size={21}
-                  strokeWidth={1.8}
+                <Icon
+                  icon="lucide:chevron-down"
+                  width={21}
+                  height={21}
                   class={`ml-auto shrink-0 text-gray-500 transition-transform duration-300 ${
                     activeIndex === index ? 'rotate-180' : ''
                   }`}

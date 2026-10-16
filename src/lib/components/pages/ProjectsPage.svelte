@@ -1,6 +1,6 @@
 
 <script lang="ts">
-  import { ArrowUpRight } from 'lucide-svelte';
+  import Icon from '@iconify/svelte';
   import { projects, type Project } from '$lib/data/projects';
 
   let {
@@ -27,9 +27,10 @@
             {project.title}
           </h3>
 
-          <ArrowUpRight
-            size={19}
-            strokeWidth={1.8}
+          <Icon
+            icon="lucide:arrow-up-right"
+            width={19}
+            height={19}
             class="shrink-0 text-gray-400 transition-transform duration-300 group-hover:rotate-360 group-hover:text-black"
           />
         </div>

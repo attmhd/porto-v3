@@ -1,12 +1,6 @@
 
 <script lang="ts">
-  import {
-    ArrowLeft,
-    ArrowRight,
-    ArrowUpRight,
-    CodeXml,
-    ExternalLink
-  } from 'lucide-svelte';
+  import Icon from '@iconify/svelte';
 
   import type { Project } from '$lib/data/projects';
 
@@ -28,7 +22,7 @@
       onclick={onBack}
       class="group flex items-center gap-2 text-sm text-gray-500 transition hover:text-black"
     >
-      <ArrowLeft size={15} class="transition-transform group-hover:-translate-x-1" />
+      <Icon icon="lucide:arrow-left" width={15} height={15} class="transition-transform group-hover:-translate-x-1" />
       <span>Projects</span>
     </button>
 
@@ -65,9 +59,9 @@
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 border-b border-black pb-1 text-sm transition hover:text-gray-500 hover:border-gray-300"
           >
-            <ExternalLink size={15} />
+            <Icon icon="lucide:external-link" width={15} height={15} />
             Live Demo
-            <ArrowUpRight size={14} />
+            <Icon icon="lucide:arrow-up-right" width={14} height={14} />
           </a>
         {/if}
 
@@ -78,9 +72,9 @@
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 border-b border-gray-300 pb-1 text-sm text-gray-600 transition hover:border-black hover:text-black"
           >
-            <CodeXml size={15} />
+            <Icon icon="lucide:code-xml" width={15} height={15} />
             View Repository
-            <ArrowUpRight size={14} />
+            <Icon icon="lucide:arrow-up-right" width={14} height={14} />
           </a>
         {/if}
       </div>
@@ -113,7 +107,7 @@
             }}
             class="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-700 transition hover:bg-white hover:text-black sm:left-4"
           >
-            <ArrowLeft size={17} strokeWidth={1.5} />
+            <Icon icon="lucide:arrow-left" width={17} height={17} />
           </button>
 
           <!-- NEXT -->
@@ -126,7 +120,7 @@
             }}
             class="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-700 transition hover:bg-white hover:text-black sm:right-4"
           >
-            <ArrowRight size={17} strokeWidth={1.5} />
+            <Icon icon="lucide:arrow-right" width={17} height={17} />
           </button>
         {/if}
       </div>

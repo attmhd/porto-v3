@@ -1,0 +1,54 @@
+Muhammad Attan
+Padang, Indonesia | attmhd2.work@gmail.com | +6285669090338
+LinkedIn: https://linkedin.com/in/attmhd | Portfolio: https://attmhd.me
+
+SUMMARY
+Fresh graduate in Informatics Engineering with a GPA of 3.73/4.00 and hands-on
+experience in web application development, backend systems, database integration,
+and applied AI.
+
+EDUCATION
+Institut Teknologi Padang
+Bachelor's Degree in Informatics Engineering (S.Kom), GPA 3.73/4.00
+Sep 2022 - Sep 2026
+
+AWS re/Start Batch 14
+Cloud Computing Cohort, Mar 2026 - Jun 2026
+
+Bangkit Academy Batch 2 2024
+Machine Learning Cohort, Sep 2024 - Dec 2024
+
+EXPERIENCE
+PT. Avenir Fortuna Corporindo - Web Developer (Freelance)
+Remote | Sep 2026
+Developed and maintained a Laravel application, improved role-based access and
+registration workflows, troubleshot email-service issues, and implemented HTTP
+security headers that improved the SecurityHeaders.com evaluation from Grade F
+to Grade A.
+
+PT. Aplikasi Kriya Pratama - AI Intern
+Padang, Indonesia | Jul 2025 - Sep 2025
+Developed a Retrieval-Augmented Generation chatbot for contextual question
+answering from educational video content and integrated AI, backend, vector
+search, and caching components into a deployable architecture.
+
+Lookin - Machine Learning Engineer
+Remote | Nov 2024 - Dec 2024
+Led computer vision model development for a hairstyle recommendation app.
+Achieved 91% gender classification accuracy and 73% face-shape classification
+accuracy.
+
+Institut Teknologi Padang - Lab Assistant
+Padang, Indonesia | Feb 2023 - Jun 2023
+Mentored more than 40 students across three laboratory classes in digital logic
+and basic electronics.
+
+PT. Kakao Mas Gemilang - Quality Control Laboratory Analyst Intern
+Tangerang, Indonesia | Sep 2017 - Nov 2017
+Assisted with laboratory quality control activities, sample testing, and test
+record documentation.
+
+SKILLS
+JavaScript, TypeScript, Python, Go, PHP, SQL, React, Next.js, Vue.js, Tailwind
+CSS, Laravel, FastAPI, Express.js, Hono, MySQL, PostgreSQL, MongoDB, Git,
+Docker, Linux, AWS, GitHub Actions, CI/CD.

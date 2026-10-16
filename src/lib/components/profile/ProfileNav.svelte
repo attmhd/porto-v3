@@ -1,16 +1,7 @@
 
 <script lang="ts">
-  import {
-    House,
-    FolderOpen,
-    NotebookText,
-    Image,
-    Settings,
-    ChevronDown,
-    Volume2,
-    VolumeX
-  } from 'lucide-svelte';
-  type MenuName = 'Home' | 'Projects' | 'Blog' | 'Gallery';
+  import Icon from '@iconify/svelte';
+  type MenuName = 'Home' | 'Projects' | 'Product' | 'Certificates';
 
   let {
     activeMenu,
@@ -24,10 +15,10 @@
   let soundEnabled = $state(true);
 
   const menus = [
-    { label: 'Home', icon: House },
-    { label: 'Projects', icon: FolderOpen },
-    { label: 'Blog', icon: NotebookText },
-    { label: 'Gallery', icon: Image }
+    { label: 'Home', icon: 'lucide:house' },
+    { label: 'Projects', icon: 'lucide:folder-open' },
+    { label: 'Product', icon: 'lucide:package' },
+    { label: 'Certificates', icon: 'lucide:award' }
   ] as const;
 
   function toggleSound() {
@@ -58,10 +49,9 @@
 <nav class="sticky top-0 z-40 border-t border-gray-300 bg-white/90 backdrop-blur-md">
   <div class="flex h-16 items-center px-3 sm:px-5">
     {#each menus as menu}
-      {@const Icon = menu.icon}
       <button type="button" onclick={() => selectMenu(menu.label)} aria-current={activeMenu === menu.label ? 'page' : undefined} class="group relative flex h-full flex-1 items-center justify-center">
         <div class={`flex items-center gap-2 transition-colors ${activeMenu === menu.label ? 'text-black' : 'text-gray-400 group-hover:text-black'}`}>
-          <Icon size={20} strokeWidth={1.8} />
+          <Icon icon={menu.icon} width={20} height={20} />
           <span class="hidden text-sm font-medium sm:block">{menu.label}</span>
         </div>
         {#if activeMenu === menu.label}
@@ -70,27 +60,5 @@
       </button>
     {/each}
 
-    <div class="relative flex h-full flex-1 items-center justify-center">
-      <button type="button" onclick={() => settingsOpen = !settingsOpen} aria-expanded={settingsOpen} aria-label="Settings" class="flex items-center gap-1.5 text-gray-500 hover:text-black">
-        <Settings size={20} strokeWidth={1.8} />
-        <ChevronDown size={15} class={`transition-transform ${settingsOpen ? 'rotate-180' : ''}`} />
-      </button>
-
-      {#if settingsOpen}
-        <div class="absolute right-0 top-full z-50 mt-2 w-52 rounded-xl border border-gray-200 bg-white p-2 shadow-lg">
-          <p class="px-3 py-2 text-xs font-medium uppercase tracking-wider text-gray-400">Preferences</p>
-          <button type="button" onclick={toggleSound} class="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm text-gray-700 hover:bg-gray-100">
-            {#if soundEnabled}
-              <Volume2 size={18} />
-              <span>Sound on</span>
-            {:else}
-              <VolumeX size={18} />
-              <span>Sound off</span>
-            {/if}
-            <span class="ml-auto text-xs text-gray-400">{soundEnabled ? 'ON' : 'OFF'}</span>
-          </button>
-        </div>
-      {/if}
-    </div>
   </div>
 </nav>
