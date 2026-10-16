@@ -2,7 +2,6 @@
   import Icon from '@iconify/svelte';
   import ProfilePict from '../../assets/images/image1.jpg';
   import ProfileMascot from './ProfileMascot.svelte';
-  import SpotifyNowPlaying from './SpotifyNowPlaying.svelte';
   import background from '../../assets/images/background.jpg';
   import { profileData } from '$lib/data/profile';
 </script>
@@ -29,11 +28,6 @@
 
     <!-- PROFILE PHOTO -->
     <div class="absolute -top-16 left-0 z-40">
-
-      <!-- SPOTIFY NOTE -->
-      <div class="absolute bottom-30 left-20 z-50 mb-3 -translate-x-1/2">
-        <SpotifyNowPlaying />
-      </div>
 
       <!-- PHOTO -->
       <div class="h-32 w-32 overflow-hidden rounded-3xl border-6 border-white bg-gray-200">

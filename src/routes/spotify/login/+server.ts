@@ -1,19 +1,5 @@
-import { redirect } from '@sveltejs/kit';
-import { getSpotifyAuthorizationUrl } from '$lib/spotify/spotify.server';
+import { error } from '@sveltejs/kit';
 
-export const GET = ({ cookies }) => {
-  const state = crypto.randomUUID();
-
-  cookies.set('spotify_oauth_state', state, {
-    httpOnly: true,
-    secure: false,
-    sameSite: 'lax',
-    path: '/',
-    maxAge: 60 * 10
-  });
-
-  throw redirect(
-    302,
-    getSpotifyAuthorizationUrl(state)
-  );
+export const GET = () => {
+  error(404, 'Spotify integration is disabled');
 };
