@@ -3,12 +3,25 @@
   import Icon from '@iconify/svelte';
   import { projects } from '$lib/data/projects';
   import type { Project } from '$lib/data/projects';
+  import { paginate } from '$lib/utils/pagination';
 
   let {
-    onSelectProject
+    onSelectProject,
+    pageSize = 10
   }: {
     onSelectProject: (project: Project) => void;
+    pageSize?: number;
   } = $props();
+
+  let currentPage = $state(1);
+
+  let pagination = $derived(paginate(projects, currentPage, pageSize));
+
+  function goToPage(page: number) {
+    if (page >= 1 && page <= pagination.totalPages) {
+      currentPage = page;
+    }
+  }
 </script>
 
 <section id="projects" class="mt-5 bg-white">
@@ -25,7 +38,7 @@
 
   <!-- PROJECT LIST -->
   <div>
-    {#each projects as project, index (project.id)}
+    {#each pagination.items as project, index (project.id)}
       <button
         type="button"
         onclick={() => onSelectProject(project)}
@@ -100,4 +113,55 @@
       </button>
     {/each}
   </div>
+
+  <!-- PAGINATION -->
+  {#if pagination.totalPages > 1}
+    <div class="flex flex-col items-center justify-between gap-4 border-t border-gray-300 px-7 py-5 sm:flex-row">
+      <p class="font-mono text-xs text-gray-500">
+        Showing {(pagination.currentPage - 1) * pagination.pageSize + 1}-{Math.min(pagination.currentPage * pagination.pageSize, pagination.totalItems)} of {pagination.totalItems}
+      </p>
+
+      <div class="flex items-center gap-2">
+        <button
+          type="button"
+          onclick={() => goToPage(pagination.currentPage - 1)}
+          disabled={!pagination.hasPrevPage}
+          aria-label="Previous page"
+          class="inline-flex h-9 items-center justify-center rounded-lg border border-gray-200 px-3 font-mono text-xs text-gray-600 transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          <Icon icon="lucide:chevron-left" width={16} height={16} class="mr-1" />
+          Prev
+        </button>
+
+        <div class="flex items-center gap-1">
+          {#each Array.from({ length: pagination.totalPages }, (_, i) => i + 1) as page}
+            <button
+              type="button"
+              onclick={() => goToPage(page)}
+              aria-label={`Page ${page}`}
+              aria-current={pagination.currentPage === page ? 'page' : undefined}
+              class={`inline-flex h-9 w-9 items-center justify-center rounded-lg font-mono text-xs transition-colors ${
+                pagination.currentPage === page
+                  ? 'bg-black font-medium text-white'
+                  : 'border border-gray-200 text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              {page}
+            </button>
+          {/each}
+        </div>
+
+        <button
+          type="button"
+          onclick={() => goToPage(pagination.currentPage + 1)}
+          disabled={!pagination.hasNextPage}
+          aria-label="Next page"
+          class="inline-flex h-9 items-center justify-center rounded-lg border border-gray-200 px-3 font-mono text-xs text-gray-600 transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Next
+          <Icon icon="lucide:chevron-right" width={16} height={16} class="ml-1" />
+        </button>
+      </div>
+    </div>
+  {/if}
 </section>

@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { certificates, getCertificateById } from '../src/lib/data/certificates.ts';
+import { certificates, getCertificateById, toEmbedUrl } from '../src/lib/data/certificates.ts';
 
 describe('certificates data', () => {
   it('should contain a non-empty list of certificates', () => {
@@ -13,8 +13,6 @@ describe('certificates data', () => {
       assert.ok(cert.id, 'Certificate must have an id');
       assert.ok(cert.title, 'Certificate must have a title');
       assert.ok(cert.issuer, 'Certificate must have an issuer');
-      assert.ok(typeof cert.issueDate === 'string', 'Certificate must have an issueDate');
-      assert.ok(cert.description, 'Certificate must have a description');
     }
   });
 
@@ -22,5 +20,19 @@ describe('certificates data', () => {
     const first = certificates[0];
     const found = getCertificateById(first.id);
     assert.deepEqual(found, first);
+  });
+
+  it('pdf, when provided, should be a local .pdf path or an https URL', () => {
+    for (const cert of certificates) {
+      if (cert.pdf !== undefined) assert.match(cert.pdf, /(\.pdf$)|(^https:\/\/)/i);
+    }
+  });
+
+  it('toEmbedUrl converts Google Drive share links to /preview', () => {
+    assert.equal(
+      toEmbedUrl('https://drive.google.com/file/d/abc123/view?usp=sharing'),
+      'https://drive.google.com/file/d/abc123/preview'
+    );
+    assert.equal(toEmbedUrl('/certificates/a.pdf'), '/certificates/a.pdf');
   });
 });

@@ -23,5 +23,27 @@ describe('ProfileHeader metadata layout', () => {
       socialBlock.includes('simple-icons:medium') || socialBlock.includes('medium.com'),
       'Medium should be inside the right-aligned social container'
     );
+    assert.ok(
+      socialBlock.includes('simple-icons:leetcode') && socialBlock.includes('leetcode.com'),
+      'LeetCode icon and link should be inside the right-aligned social container'
+    );
+  });
+
+  it('should not contain mascot component or container', () => {
+    const filePath = path.resolve('src/lib/components/profile/ProfileHeader.svelte');
+    const content = fs.readFileSync(filePath, 'utf-8');
+
+    assert.ok(!content.includes('ProfileMascot'), 'ProfileHeader should not import or render ProfileMascot');
+    assert.ok(!content.includes('FOX MASCOT'), 'ProfileHeader should not contain mascot section');
+  });
+
+  it('should render an "Open to work" chat bubble with tail above the profile photo', () => {
+    const filePath = path.resolve('src/lib/components/profile/ProfileHeader.svelte');
+    const content = fs.readFileSync(filePath, 'utf-8');
+
+    assert.match(content, /open\s+to\s+work/i, 'Should display "Open to work" text');
+    assert.match(content, /data-testid="thought-bubble"/, 'Should render thought bubble');
+    assert.match(content, /data-testid="thought-dot-lg"/, 'Should render large thought dot');
+    assert.match(content, /data-testid="thought-dot-sm"/, 'Should render small thought dot');
   });
 });

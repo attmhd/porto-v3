@@ -1,6 +1,14 @@
 <script lang="ts">
   import Icon from '@iconify/svelte';
-  import { certificates } from '$lib/data/certificates';
+  import { certificates, toEmbedUrl, type Certificate } from '$lib/data/certificates';
+
+  let dialog: HTMLDialogElement;
+  let active = $state<Certificate | null>(null);
+
+  function openPdf(cert: Certificate) {
+    active = cert;
+    dialog.showModal();
+  }
 </script>
 
 <section class="bg-white">
@@ -12,6 +20,25 @@
         }`}
       >
         <!-- PREVIEW / BADGE CONTAINER -->
+        {#if item.pdf}
+          <button
+            type="button"
+            onclick={() => openPdf(item)}
+            aria-label={`Open ${item.title} PDF`}
+            class="group relative aspect-16/10 w-full cursor-zoom-in overflow-hidden rounded-xl border border-gray-200 bg-gray-100"
+          >
+            <iframe
+              src={`${toEmbedUrl(item.pdf)}#toolbar=0&navpanes=0&view=FitH`}
+              title={item.title}
+              loading="lazy"
+              tabindex="-1"
+              class="pointer-events-none h-full w-full"
+            ></iframe>
+            <span class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition group-hover:bg-black/30 group-hover:opacity-100">
+              <Icon icon="lucide:maximize-2" width={28} height={28} class="text-white" />
+            </span>
+          </button>
+        {:else}
         <div class="relative aspect-16/10 w-full overflow-hidden rounded-xl border border-gray-200 bg-gray-100">
           {#if item.image}
             <img
@@ -27,6 +54,7 @@
             </div>
           {/if}
         </div>
+        {/if}
 
         <!-- TITLE + YEAR -->
         <div class="mt-5 flex items-start justify-between gap-3">
@@ -76,3 +104,27 @@
     {/each}
   </div>
 </section>
+
+<dialog
+  bind:this={dialog}
+  onclose={() => (active = null)}
+  onclick={(e) => e.target === dialog && dialog.close()}
+  class="m-auto h-[90vh] w-[min(95vw,64rem)] overflow-hidden rounded-2xl bg-white p-0 shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm"
+>
+  {#if active?.pdf}
+    <div class="flex h-full flex-col">
+      <div class="flex items-center justify-between gap-3 border-b border-gray-200 px-4 py-3">
+        <h3 class="truncate text-sm font-semibold text-black">{active.title}</h3>
+        <div class="flex items-center gap-3 text-gray-500">
+          <a href={active.pdf} target="_blank" rel="noreferrer" aria-label="Open in new tab" class="hover:text-black">
+            <Icon icon="lucide:external-link" width={18} height={18} />
+          </a>
+          <button type="button" onclick={() => dialog.close()} aria-label="Close" class="hover:text-black">
+            <Icon icon="lucide:x" width={20} height={20} />
+          </button>
+        </div>
+      </div>
+      <iframe src={toEmbedUrl(active.pdf)} title={active.title} class="w-full flex-1"></iframe>
+    </div>
+  {/if}
+</dialog>

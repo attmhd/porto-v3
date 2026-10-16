@@ -14,9 +14,6 @@ importers:
       '@icons-pack/svelte-simple-icons':
         specifier: ^7.2.0
         version: 7.2.0(@sveltejs/kit@2.70.3(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)))(svelte@5.57.2)(typescript@6.0.3)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)))(svelte@5.57.2)
-      page-mascot:
-        specifier: ^0.1.0
-        version: 0.1.0(react@19.3.0)
       postprocessing:
         specifier: ^6.39.5
         version: 6.39.5(three@0.186.1)
@@ -901,12 +898,6 @@ packages:
     resolution: {integrity: sha512-XrsrhT5sybtKI6wakr2SPOlGZWWYbUXZ7a0jT8/QOeAPau+1X/bSegNe5YR75oJmEZQbKningirmGOEJCIk61Q==}
     engines: {node: '>=12.20.0'}
 
-  page-mascot@0.1.0:
-    resolution: {integrity: sha512-sw/BIqRKJ7nUfaxAGtmwQqm534I+lb2ZiXLDWZNexR1VF1RkmRl6BLVtj7hH+PrsiCPKtxHhA3IpVkXEm72FeA==}
-    engines: {node: '>=20'}
-    peerDependencies:
-      react: '>=18'
-
   path-scurry@2.0.2:
     resolution: {integrity: sha512-3O/iVVsJAPsOnpwWIeD+d6z/7PmqApyQePUtCndjatj/9I5LylHvt5qluFaBT3I5h3r1ejfR056c+FCv+NnNXg==}
     engines: {node: 18 || 20 || >=22}
@@ -926,10 +917,6 @@ packages:
     resolution: {integrity: sha512-YmH+t74J2X1lwYjKzK/tgs9C9kqWWPB9JwZiDF5mEf4BdCEAmEFbO8lXBA7NM0/j4g+x6FgD/Tt5/kT7ogbEDA==}
     peerDependencies:
       three: '>= 0.168.0 < 0.187.0'
-
-  react@19.3.0:
-    resolution: {integrity: sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog==}
-    engines: {node: '>=0.10.0'}
 
   readdirp@4.1.2:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
@@ -1687,10 +1674,6 @@ snapshots:
 
   obug@2.2.1: {}
 
-  page-mascot@0.1.0(react@19.3.0):
-    dependencies:
-      react: 19.3.0
-
   path-scurry@2.0.2:
     dependencies:
       lru-cache: 11.5.3
@@ -1709,8 +1692,6 @@ snapshots:
   postprocessing@6.39.5(three@0.186.1):
     dependencies:
       three: 0.186.1
-
-  react@19.3.0: {}
 
   readdirp@4.1.2: {}
 

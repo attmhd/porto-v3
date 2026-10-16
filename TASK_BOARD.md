@@ -21,4 +21,31 @@
 - [x] Task 18: Write failing test suite for experience logo asset imports (TDD Red)
 - [x] Task 19: Fix experience logo asset imports and verify in production build/preview (TDD Green)
 - [x] Task 20: Verify preview, test suite, svelte-check, and build
-
+- [x] Task 21: Write failing test suite asserting no tech stack icons in Experience component (TDD Red)
+- [x] Task 22: Remove tech stack icon and unused icon mappings from Experience component (TDD Green)
+- [x] Task 23: Verify test suite, svelte-check, and build
+- [x] Task 24: Write failing test suite for pagination helper module and Projects pagination (TDD Red)
+- [x] Task 25: Implement pure pagination utility in src/lib/utils/pagination.ts (TDD Green)
+- [x] Task 26: Integrate pagination controls and derived state in Projects.svelte (TDD Green)
+- [x] Task 27: Verify test suite, svelte-check, and build
+- [x] Task 28: Write failing test suite for LeetCode link in ProfileHeader (TDD Red)
+- [x] Task 29: Add LeetCode social link and icon to ProfileHeader.svelte (TDD Green)
+- [x] Task 30: Verify test suite, svelte-check, and build
+- [x] Task 31: Write failing test asserting default page size is 10 in Projects component (TDD Red)
+- [x] Task 32: Update default page size to 10 in Projects.svelte (TDD Green)
+- [x] Task 33: Verify test suite, svelte-check, and build
+- [x] Task 34: Write failing test suite asserting ProfileHeader does not render ProfileMascot (TDD Red)
+- [x] Task 35: Remove ProfileMascot from ProfileHeader and delete unused mascot files/deps (TDD Green)
+- [x] Task 36: Verify test suite, svelte-check, and build
+- [x] Task 37: Write failing test suite for Open to Work bubble chat in ProfileHeader (TDD Red)
+- [x] Task 38: Implement Open to Work bubble chat with commit 601309d style in ProfileHeader.svelte (TDD Green)
+- [x] Task 39: Verify test suite, svelte-check, and build
+- [x] Task 40: Write failing test for achievements data (TDD Red)
+- [x] Task 41: Add achievements data and Achievements section below Tech Stack on Home (TDD Green)
+- [x] Task 42: Verify test suite
+- [x] Task 43: Write failing test for optional certificate pdf field (TDD Red)
+- [x] Task 44: Render PDF preview in certificate cards with full-screen dialog viewer (TDD Green)
+- [x] Task 45: Verify test suite and svelte-check
+- [x] Task 46: Write failing test for remote pdf URLs and Drive embed conversion (TDD Red)
+- [x] Task 47: Implement toEmbedUrl and use it in CertificatesPage (TDD Green)
+- [x] Task 48: Restyle Open to Work bubble as bordered box; align certificate test with optional fields

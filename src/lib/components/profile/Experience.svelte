@@ -7,39 +7,6 @@
   function toggleExperience(index: number) {
     activeIndex = activeIndex === index ? null : index;
   }
-
-  const techIcons: Record<string, string> = {
-    Laravel: 'simple-icons:laravel',
-    PHP: 'simple-icons:php',
-    MySQL: 'simple-icons:mysql',
-    AWS: 'simple-icons:amazonaws',
-    Linux: 'simple-icons:linux',
-    Python: 'simple-icons:python',
-    Kotlin: 'simple-icons:kotlin',
-    'Jetpack Compose': 'simple-icons:jetpackcompose',
-    Android: 'simple-icons:android',
-    'RAG': 'lucide:brain-circuit',
-    FastAPI: 'simple-icons:fastapi',
-    Qdrant: 'simple-icons:qdrant',
-    Redis: 'simple-icons:redis',
-    Docker: 'simple-icons:docker',
-    'Machine Learning': 'lucide:brain-circuit',
-    'Computer Vision': 'lucide:scan-eye',
-    TensorFlow: 'simple-icons:tensorflow',
-    'Image Classification': 'lucide:images',
-    'Cloud Computing': 'lucide:cloud',
-    Networking: 'lucide:network',
-    Databases: 'lucide:database',
-    'Role-based Access': 'lucide:users-round',
-    'Security Headers': 'lucide:shield-check',
-    POS: 'lucide:store',
-    PDF: 'lucide:file-text',
-    'Thermal Printing': 'lucide:printer'
-  };
-
-  function getTechIcon(tag: string) {
-    return techIcons[tag] ?? 'lucide:code-2';
-  }
 </script>
 
 <section class="bg-white">
@@ -149,9 +116,8 @@
               <div class="mt-4 flex flex-wrap gap-2">
                 {#each experience.tags as tag}
                   <span
-                    class="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-3 py-1.5 font-mono text-sm text-gray-600"
+                    class="inline-flex items-center rounded-xl border border-gray-200 bg-gray-50 px-3 py-1.5 font-mono text-sm text-gray-600"
                   >
-                    <Icon icon={getTechIcon(tag)} width={15} height={15} />
                     {tag}
                   </span>
                 {/each}
