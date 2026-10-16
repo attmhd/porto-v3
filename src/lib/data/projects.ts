@@ -186,7 +186,7 @@ export const projects: Project[] = projectContent.map((project, index) => ({
   title: project.title,
   description: project.description,
   role: project.category,
-  year: 'Portfolio',
+  year: '',
   type: project.category,
   technologies: project.technologies,
   href: project.demoUrl ?? project.githubUrl ?? '#',

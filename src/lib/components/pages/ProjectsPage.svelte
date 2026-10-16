@@ -8,11 +8,21 @@
   }: {
     onSelectProject: (project: Project) => void;
   } = $props();
+
+  const projectsPerPage = 6;
+  let currentPage = $state(1);
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  const visibleProjects = $derived(
+    projects.slice(
+      (currentPage - 1) * projectsPerPage,
+      currentPage * projectsPerPage
+    )
+  );
 </script>
 
 <section class="bg-white">
   <div class="grid grid-cols-1 sm:grid-cols-2">
-    {#each projects as project, index (project.id)}
+    {#each visibleProjects as project, index (project.id)}
       <button
         type="button"
         onclick={() => onSelectProject(project)}
@@ -52,10 +62,6 @@
 
         <!-- TECHNOLOGIES -->
         <div class="mt-4 flex flex-wrap gap-2">
-          <span class="rounded-lg border border-gray-200 bg-gray-50 px-2.5 py-1 font-mono text-xs text-gray-500">
-            {project.year}
-          </span>
-
           {#each project.technologies as technology}
             <span
               class="rounded-lg border border-gray-200 bg-gray-50 px-2.5 py-1 font-mono text-xs text-gray-500"
@@ -67,4 +73,46 @@
       </button>
     {/each}
   </div>
+
+  {#if totalPages > 1}
+    <div class="flex items-center justify-between border-t border-gray-200 px-5 py-4 sm:px-6">
+      <button
+        type="button"
+        onclick={() => (currentPage = Math.max(1, currentPage - 1))}
+        disabled={currentPage === 1}
+        class="inline-flex items-center gap-2 text-sm text-gray-500 transition hover:text-black disabled:cursor-not-allowed disabled:opacity-30"
+      >
+        <Icon icon="lucide:arrow-left" width={16} height={16} />
+        Previous
+      </button>
+
+      <div class="flex items-center gap-1.5" aria-label="Project pages">
+        {#each Array(totalPages) as _, index}
+          <button
+            type="button"
+            onclick={() => (currentPage = index + 1)}
+            aria-label={`Go to project page ${index + 1}`}
+            aria-current={currentPage === index + 1 ? 'page' : undefined}
+            class={`flex h-8 w-8 items-center justify-center rounded-lg text-sm transition ${
+              currentPage === index + 1
+                ? 'bg-black text-white'
+                : 'text-gray-500 hover:bg-gray-100 hover:text-black'
+            }`}
+          >
+            {index + 1}
+          </button>
+        {/each}
+      </div>
+
+      <button
+        type="button"
+        onclick={() => (currentPage = Math.min(totalPages, currentPage + 1))}
+        disabled={currentPage === totalPages}
+        class="inline-flex items-center gap-2 text-sm text-gray-500 transition hover:text-black disabled:cursor-not-allowed disabled:opacity-30"
+      >
+        Next
+        <Icon icon="lucide:arrow-right" width={16} height={16} />
+      </button>
+    </div>
+  {/if}
 </section>

@@ -104,10 +104,12 @@
               <p class="mt-1 text-gray-700">{project.type}</p>
             </div>
 
-            <div>
-              <p>YEAR</p>
-              <p class="mt-1 text-gray-700">{project.year}</p>
-            </div>
+            {#if project.year}
+              <div>
+                <p>YEAR</p>
+                <p class="mt-1 text-gray-700">{project.year}</p>
+              </div>
+            {/if}
           </div>
         </div>
       </button>

@@ -35,8 +35,10 @@
   <div class="px-6 py-10 sm:px-10 sm:py-14">
     <div class="flex items-center gap-3 text-xs text-gray-400">
       <span class="font-mono">{project.number}</span>
-      <span class="h-px w-6 bg-gray-300"></span>
-      <span>{project.year}</span>
+      {#if project.year}
+        <span class="h-px w-6 bg-gray-300"></span>
+        <span>{project.year}</span>
+      {/if}
     </div>
 
     <h1
@@ -184,51 +186,57 @@
     </div>
   </div>
 
-  <!-- RESPONSIBILITIES -->
-  <div class="px-9 py-9 ">
-    <h2 class="text-lg font-medium tracking-tight">My Role</h2>
+  {#if project.responsibilities.length > 0}
+    <!-- RESPONSIBILITIES -->
+    <div class="px-9 py-9">
+      <h2 class="text-lg font-medium tracking-tight">My Role</h2>
 
-    <ol class="mt-5 divide-y divide-gray-100">
-      {#each project.responsibilities as responsibility, index}
-        <li class="flex gap-5 py-4 text-sm leading-6 text-gray-600">
-          <span class="shrink-0 font-mono text-xs text-gray-400">
-            {String(index + 1).padStart(2, '0')}
-          </span>
-          <span>{responsibility}</span>
-        </li>
-      {/each}
-    </ol>
-  </div>
+      <ol class="mt-5 divide-y divide-gray-100">
+        {#each project.responsibilities as responsibility, index}
+          <li class="flex gap-5 py-4 text-sm leading-6 text-gray-600">
+            <span class="shrink-0 font-mono text-xs text-gray-400">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <span>{responsibility}</span>
+          </li>
+        {/each}
+      </ol>
+    </div>
+  {/if}
 
-  <!-- FEATURES -->
-  <div class="border-t border-gray-100 px-6 py-9 sm:px-10 sm:py-10">
-    <h2 class="text-lg font-medium tracking-tight">Features</h2>
+  {#if project.features.length > 0}
+    <!-- FEATURES -->
+    <div class="border-t border-gray-100 px-6 py-9 sm:px-10 sm:py-10">
+      <h2 class="text-lg font-medium tracking-tight">Features</h2>
 
-    <ol class="mt-5 divide-y divide-gray-100">
-      {#each project.features as feature, index}
-        <li class="flex gap-5 py-4 text-sm leading-6 text-gray-600">
-          <span class="shrink-0 font-mono text-xs text-gray-400">
-            {String(index + 1).padStart(2, '0')}
-          </span>
-          <span>{feature}</span>
-        </li>
-      {/each}
-    </ol>
-  </div>
+      <ol class="mt-5 divide-y divide-gray-100">
+        {#each project.features as feature, index}
+          <li class="flex gap-5 py-4 text-sm leading-6 text-gray-600">
+            <span class="shrink-0 font-mono text-xs text-gray-400">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <span>{feature}</span>
+          </li>
+        {/each}
+      </ol>
+    </div>
+  {/if}
 
-  <!-- IMPACT -->
-  <div class="border-t border-gray-100 px-6 py-9 sm:px-10 sm:py-10">
-    <h2 class="text-lg font-medium tracking-tight">Impact</h2>
+  {#if project.impacts.length > 0}
+    <!-- IMPACT -->
+    <div class="border-t border-gray-100 px-6 py-9 sm:px-10 sm:py-10">
+      <h2 class="text-lg font-medium tracking-tight">Impact</h2>
 
-    <ul class="mt-5 space-y-3">
-      {#each project.impacts as impact}
-        <li class="flex gap-3 text-sm leading-6 text-gray-600">
-          <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-gray-400"></span>
-          <span>{impact}</span>
-        </li>
-      {/each}
-    </ul>
-  </div>
+      <ul class="mt-5 space-y-3">
+        {#each project.impacts as impact}
+          <li class="flex gap-3 text-sm leading-6 text-gray-600">
+            <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-gray-400"></span>
+            <span>{impact}</span>
+          </li>
+        {/each}
+      </ul>
+    </div>
+  {/if}
 
   <!-- TECH STACK -->
   <div class="border-t border-gray-100 px-6 py-9 sm:px-10 sm:py-10">
