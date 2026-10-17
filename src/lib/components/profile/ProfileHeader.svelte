@@ -1,7 +1,7 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
-  import ProfilePict from "../../assets/images/image1.jpg";
-  import background from "../../assets/images/background.jpg";
+  import ProfilePict from "../../assets/images/image1.webp";
+  import background from "../../assets/images/background.webp";
   import { profileData } from "$lib/data/profile";
 </script>
 

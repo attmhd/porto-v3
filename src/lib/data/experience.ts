@@ -1,8 +1,8 @@
-import logoAvenir from '$lib/assets/images/logo-avenir.png';
-import logoOrbit from '$lib/assets/images/logo-orbit-future-academy.png';
-import logoStifarm from '$lib/assets/images/logo-stifarm.png';
-import logoAppskep from '$lib/assets/images/logo-appskep.jpeg';
-import logoBangkit from '$lib/assets/images/logo-bangkit.png';
+import logoAvenir from '$lib/assets/images/logo-avenir.webp';
+import logoOrbit from '$lib/assets/images/logo-orbit-future-academy.webp';
+import logoStifarm from '$lib/assets/images/logo-stifarm.webp';
+import logoAppskep from '$lib/assets/images/logo-appskep.webp';
+import logoBangkit from '$lib/assets/images/logo-bangkit.webp';
 
 export type ExperienceItem = {
   company: string;

@@ -1,6 +1,6 @@
 
 <script lang="ts">
-  import PixelBlast from '$lib/components/PixelBlast.svelte';
+  import { onMount } from 'svelte';
   import ProfileHeader from '$lib/components/profile/ProfileHeader.svelte';
   import ProfileNav from '$lib/components/profile/ProfileNav.svelte';
   import HomePage from '$lib/components/pages/HomePage.svelte';
@@ -16,6 +16,11 @@
 
   let activeMenu = $state<MenuName>('Home');
   let selectedProject = $state<Project | null>(null);
+  let PixelBlast = $state<typeof import('$lib/components/PixelBlast.svelte').default | null>(null);
+
+  onMount(async () => {
+    PixelBlast = (await import('$lib/components/PixelBlast.svelte')).default;
+  });
 
   function changeMenu(menu: MenuName) {
     activeMenu = menu;
@@ -35,17 +40,19 @@
     'background: repeating-linear-gradient(-45deg, #fff 0px, #fff 9px, #e5e7eb 9px, #e5e7eb 10px);';
 </script>
 
-<PixelBlast
-  variant="circle"
-  pixelSize={3.5}
-  color="#949494"
-  patternScale={10}
-  patternDensity={1.9}
-  pixelSizeJitter={8}
-  speed={0.3}
-  edgeFade={0}
-  transparent
-/>
+{#if PixelBlast}
+  <PixelBlast
+    variant="circle"
+    pixelSize={3.5}
+    color="#949494"
+    patternScale={10}
+    patternDensity={1.9}
+    pixelSizeJitter={8}
+    speed={0.3}
+    edgeFade={0}
+    transparent
+  />
+{/if}
 
 <!-- <Intro /> -->
 

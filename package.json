@@ -28,7 +28,6 @@
 	},
 	"dependencies": {
 		"@iconify/svelte": "^5.2.2",
-		"@icons-pack/svelte-simple-icons": "^7.2.0",
 		"postprocessing": "^6.39.5",
 		"three": "^0.186.0"
 	}
