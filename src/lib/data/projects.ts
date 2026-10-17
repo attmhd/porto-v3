@@ -45,7 +45,7 @@ const projectContent: ProjectContent[] = [
     title: 'MLOps for Federated Learning',
     description: 'Undergraduate final project: heart disease classification with Flower and MLflow. Implemented experiment tracking, best-model registration, and centralized container logs with Docker, Grafana Loki, and Alloy.',
     technologies: ['MLflow', 'Flower', 'Docker', 'Grafana Loki', 'Python', 'Scikit-learn'],
-    githubUrl: 'https://github.com/attmhd/tugas-akhir',
+    githubUrl: 'https://github.com/attmhd/fl-heart-disease',
     category: 'MLOps',
     role: 'ML Engineer',
     responsibilities: [
