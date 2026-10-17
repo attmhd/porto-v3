@@ -2,7 +2,6 @@
   import './layout.css';
   import icon from '$lib/assets/images/tangent.webp';
   import profileImage from '$lib/assets/images/image1-1024.webp';
-  import CustomCursor from '$lib/components/CustomCursor.svelte';
 
   const siteUrl = 'https://attmhd.me';
   const siteTitle = 'Muhammad Attan | Software Engineer';
@@ -74,5 +73,4 @@
     href={icon}
   />
 </svelte:head>
-<CustomCursor />
 {@render children()}

@@ -38,14 +38,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #949494;
 }
-
-html,
-body,
-a,
-button,
-input,
-textarea,
-select,
-[role='button'] {
-  cursor: none !important;
-}
