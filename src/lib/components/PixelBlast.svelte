@@ -62,6 +62,8 @@
     uniform float uScale;
     uniform float uDensity;
     uniform float uPixelJitter;
+    uniform sampler2D uTextMask;
+    uniform vec2 uTextCenters;
 
     uniform int uEnableRipples;
     uniform float uRippleSpeed;
@@ -333,6 +335,10 @@
             );
         }
       }
+      // A travelling wave crosses the original noise and enlarges each word as it passes.
+      float wave = pow(0.5 + 0.5 * sin(uTime * 1.8 - gl_FragCoord.x / uResolution.x * 6.283185), 8.0);
+      feed += wave * 0.25;
+
       float bayer =
         Bayer8(
           fragCoord / uPixelSize
@@ -364,7 +370,14 @@
         uPixelJitter;
 
       float coverage =
-        bw * jitterScale;
+        clamp(bw * jitterScale, 0.0, 1.0);
+
+      vec2 textUV = (pixelId * pixelSize + pixelSize * 0.5 + uResolution * 0.5) / uResolution;
+      vec2 textCenter = vec2(textUV.x < 0.5 ? uTextCenters.x : uTextCenters.y, 0.5);
+      float textWave = pow(0.5 + 0.5 * sin(uTime * 1.8 - textCenter.x * 6.283185), 8.0);
+      textUV = textCenter + (textUV - textCenter) / (1.0 + textWave * 0.28);
+      float textMask = texture(uTextMask, textUV).r;
+      coverage = mix(coverage, 1.0, textMask);
 
       float M;
 
@@ -428,7 +441,7 @@
             edge
           );
 
-        M *= fade;
+        M *= mix(fade, 0.75, textMask);
       }
 
       vec3 srgbColor =
@@ -498,7 +511,15 @@
         1
       );
 
+    const textCanvas = document.createElement('canvas');
+    const textContext = textCanvas.getContext('2d')!;
+    const textTexture = new THREE.CanvasTexture(textCanvas);
+    textTexture.minFilter = THREE.LinearFilter;
+    textTexture.generateMipmaps = false;
+
     const uniforms = {
+      uTextMask: { value: textTexture },
+      uTextCenters: { value: new THREE.Vector2() },
       uResolution: {
         value:
           new THREE.Vector2()
@@ -608,6 +629,29 @@
 
       const height =
         container.clientHeight || 1;
+
+      textCanvas.width = width;
+      textCanvas.height = height;
+      textContext.fillStyle = '#000';
+      textContext.fillRect(0, 0, width, height);
+
+      // Keep the lettering in the gutters outside the 768px content column.
+      const gutter = (width - 768) / 2;
+      uniforms.uTextCenters.value.set(gutter / 2 / width, 1 - gutter / 2 / width);
+      if (gutter >= 64) {
+        const fontSize = Math.min(gutter * 0.65, height / 6.5, 120);
+        const lineHeight = fontSize * 1.15;
+        textContext.font = `900 ${fontSize}px monospace`;
+        textContext.textAlign = 'center';
+        textContext.textBaseline = 'middle';
+        textContext.fillStyle = '#fff';
+        for (const [word, x] of [['INFO', gutter / 2], ['LOKER', width - gutter / 2]] as const) {
+          [...word].forEach((letter, index) => {
+            textContext.fillText(letter, x, height / 2 + (index - (word.length - 1) / 2) * lineHeight);
+          });
+        }
+      }
+      textTexture.needsUpdate = true;
 
       renderer.setSize(
         width,
@@ -728,6 +772,7 @@
       );
       geometry.dispose();
       material.dispose();
+      textTexture.dispose();
       renderer.dispose();
       renderer.forceContextLoss();
       if (

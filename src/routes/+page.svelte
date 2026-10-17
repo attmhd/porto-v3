@@ -40,10 +40,10 @@
   pixelSize={3.5}
   color="#949494"
   patternScale={10}
-  patternDensity={1.5}
+  patternDensity={1.9}
   pixelSizeJitter={8}
   speed={0.3}
-  edgeFade={0.35}
+  edgeFade={0}
   transparent
 />
 

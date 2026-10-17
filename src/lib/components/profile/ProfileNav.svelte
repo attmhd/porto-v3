@@ -13,6 +13,7 @@
 
   let settingsOpen = $state(false);
   let soundEnabled = $state(true);
+  let backgroundMusic: HTMLAudioElement;
 
   const menus = [
     { label: 'Home', icon: 'lucide:house' },
@@ -43,6 +44,26 @@
 
   onMount(() => {
     soundEnabled = localStorage.getItem('navbar-sound') !== 'false';
+    backgroundMusic.volume = 0.25;
+
+    const stopRetrying = () => {
+      document.removeEventListener('click', startMusic);
+      document.removeEventListener('keydown', startMusic);
+    };
+    const startMusic = (event?: Event) => {
+      if (event?.target instanceof Node && backgroundMusic.contains(event.target)) return;
+      void backgroundMusic.play().catch(() => {});
+    };
+
+    backgroundMusic.addEventListener('play', stopRetrying, { once: true });
+    document.addEventListener('click', startMusic);
+    document.addEventListener('keydown', startMusic);
+    startMusic();
+
+    return () => {
+      stopRetrying();
+      backgroundMusic.removeEventListener('play', stopRetrying);
+    };
   });
 </script>
 
@@ -61,4 +82,12 @@
     {/each}
 
   </div>
+    <audio
+      bind:this={backgroundMusic}
+      hidden
+      src="/SunKissed%20Lola%20-%20Pasilyo%20(Official%20Lyric%20Video).mp3"
+      autoplay
+      loop
+      preload="auto"
+    ></audio>
 </nav>
