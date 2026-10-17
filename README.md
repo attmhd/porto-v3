@@ -1,42 +1,61 @@
-# sv
+# Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal portfolio website template built with SvelteKit. It includes profile information, experience, projects, achievements, certificates, and technology stack sections.
 
-## Creating a project
+Built with SvelteKit, TypeScript, Tailwind CSS, and Iconify.
 
-If you're seeing this, you've probably already done this step. Congrats!
+This project was developed from [rasyidMuhammad12/rsydspace](https://github.com/rasyidMuhammad12/rsydspace).
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Features
 
-To recreate this project with the same configuration:
+- Profile header with CV download and social links
+- Experience and technology stack sections
+- Project showcase with pagination and project detail views
+- Achievements and certificates
+- Responsive layout for desktop and mobile
+- Static local assets for images and fallback project previews
 
-```sh
-# recreate this project
-npx sv@0.17.0 create --template minimal --types ts --install npm rsyddev
-```
+## Requirements
 
-## Developing
+- Node.js 18+
+- pnpm
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Development
 
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+Install dependencies:
 
 ```sh
-npm run build
+pnpm install
 ```
 
-You can preview the production build with `npm run preview`.
+Start the development server:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```sh
+pnpm dev
+```
+
+Open the local URL shown by Vite, usually `http://localhost:5173`.
+
+## Validation
+
+Run the Svelte type and template checks:
+
+```sh
+pnpm check
+```
+
+## Production
+
+Build the application:
+
+```sh
+pnpm build
+```
+
+Preview the production build locally:
+
+```sh
+pnpm preview
+```
+
+The project uses SvelteKit's adapter-auto. Configure a deployment adapter if the target hosting platform requires one.
