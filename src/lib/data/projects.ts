@@ -1,4 +1,4 @@
-import projectFallback from '$lib/assets/images/404.png';
+import projectFallback from '$lib/assets/images/404.jpg';
 
 export type Project = {
   id: string;
