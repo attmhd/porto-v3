@@ -1,6 +1,7 @@
 
 <script lang="ts">
   import Icon from '@iconify/svelte';
+  import { onMount } from 'svelte';
   type MenuName = 'Home' | 'Projects' | 'Product' | 'Certificates';
 
   let {
@@ -40,29 +41,32 @@
     onMenuChange(menu);
   }
 
-  import { onMount } from 'svelte';
-
   onMount(() => {
     soundEnabled = localStorage.getItem('navbar-sound') !== 'false';
     backgroundMusic.volume = 0.25;
 
+    const interactionEvents = ['pointerdown', 'keydown', 'touchstart'];
     const stopRetrying = () => {
-      document.removeEventListener('click', startMusic);
-      document.removeEventListener('keydown', startMusic);
+      for (const eventName of interactionEvents) {
+        document.removeEventListener(eventName, startMusic);
+      }
     };
     const startMusic = (event?: Event) => {
-      if (event?.target instanceof Node && backgroundMusic.contains(event.target)) return;
-      void backgroundMusic.play().catch(() => {});
+      if (event instanceof KeyboardEvent && event.repeat) return;
+
+      void backgroundMusic.play().then(stopRetrying).catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === 'NotAllowedError') return;
+        console.error('Failed to start background music:', error);
+      });
     };
 
-    backgroundMusic.addEventListener('play', stopRetrying, { once: true });
-    document.addEventListener('click', startMusic);
-    document.addEventListener('keydown', startMusic);
+    for (const eventName of interactionEvents) {
+      document.addEventListener(eventName, startMusic, { passive: true });
+    }
     startMusic();
 
     return () => {
       stopRetrying();
-      backgroundMusic.removeEventListener('play', stopRetrying);
     };
   });
 </script>
@@ -88,6 +92,7 @@
       src="/SunKissed%20Lola%20-%20Pasilyo%20(Official%20Lyric%20Video).mp3"
       autoplay
       loop
-      preload="auto"
+      preload="none"
+      aria-label="Background music"
     ></audio>
 </nav>

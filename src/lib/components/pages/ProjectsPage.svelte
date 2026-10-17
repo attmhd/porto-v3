@@ -55,7 +55,10 @@
           <img
             src={project.image}
             alt={`${project.title} project preview`}
+            width="640"
+            height="400"
             loading="lazy"
+            decoding="async"
             class="h-full w-full object-cover transition-transform duration-500"
           />
         </div>

@@ -1,23 +1,23 @@
 @import 'tailwindcss';
 
 :root {
-  font-family: 'Google Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Google Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: #ebedf0;
 }
 
 .font-sans {
-  font-family: 'Google Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .font-hand {
-font-family: "Caveat", cursive;
+  font-family: "Segoe Print", "Bradley Hand", cursive;
   font-weight: 400;
   font-style: normal;
 }

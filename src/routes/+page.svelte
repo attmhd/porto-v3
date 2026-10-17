@@ -18,8 +18,15 @@
   let selectedProject = $state<Project | null>(null);
   let PixelBlast = $state<typeof import('$lib/components/PixelBlast.svelte').default | null>(null);
 
-  onMount(async () => {
-    PixelBlast = (await import('$lib/components/PixelBlast.svelte')).default;
+  onMount(() => {
+    const loadPixelBlast = async () => {
+      PixelBlast = (await import('$lib/components/PixelBlast.svelte')).default;
+    };
+    const idle = window.setTimeout(loadPixelBlast, 2000);
+
+    return () => {
+      window.clearTimeout(idle);
+    };
   });
 
   function changeMenu(menu: MenuName) {

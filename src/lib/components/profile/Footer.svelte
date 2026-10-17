@@ -13,7 +13,7 @@
     muted
     loop
     playsinline
-    preload="metadata"
+    preload="none"
     class="absolute inset-0 object-bottom  -z-20 h-full w-full object-cover"
   ></video>
 

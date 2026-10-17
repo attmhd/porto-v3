@@ -1,6 +1,8 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
-  import ProfilePict from "../../assets/images/image1.webp";
+  import ProfilePict from "../../assets/images/image1-1024.webp";
+  import ProfilePictMedium from "../../assets/images/image1-512.webp";
+  import ProfilePictSmall from "../../assets/images/image1-256.webp";
   import background from "../../assets/images/background.webp";
   import { profileData } from "$lib/data/profile";
 </script>
@@ -10,6 +12,10 @@
     <img
       src={background}
       alt=""
+      width="735"
+      height="414"
+      fetchpriority="high"
+      decoding="async"
       class="absolute inset-0 z-0 h-full w-full object-cover object-[center_85%]"
     />
   </div>
@@ -45,6 +51,12 @@
         <img
           src={ProfilePict}
           alt="Muhammad Attan"
+          srcset={`${ProfilePictSmall} 256w, ${ProfilePictMedium} 512w, ${ProfilePict} 1024w`}
+          sizes="128px"
+          width="128"
+          height="128"
+          loading="eager"
+          decoding="async"
           class="h-full w-full object-cover"
         />
       </div>

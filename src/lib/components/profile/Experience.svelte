@@ -38,6 +38,9 @@
               <img
                 src={experience.logo}
                 alt={experience.company}
+                width="40"
+                height="40"
+                decoding="async"
                 class="max-h-10 max-w-10 rounded-xl object-contain mix-blend-multiply"
               />
             {:else}

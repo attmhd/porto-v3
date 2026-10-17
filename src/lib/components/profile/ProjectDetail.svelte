@@ -93,6 +93,9 @@
           <img
             src={project.gallery[activeImage]}
             alt={`${project.title} preview ${activeImage + 1}`}
+            width="1280"
+            height="720"
+            decoding="async"
             class="h-full w-full object-cover"
           />
         </div>
