@@ -118,6 +118,7 @@
         <!-- LINKEDIN -->
         <a
           href="https://linkedin.com/in/attmhd"
+          aria-label="Muhammad Attan on LinkedIn"
           target="_blank"
           rel="noreferrer"
           class="flex items-center gap-2 transition hover:text-black"
@@ -128,6 +129,7 @@
         <!-- GITHUB -->
         <a
           href="https://github.com/attmhd"
+          aria-label="Muhammad Attan on GitHub"
           target="_blank"
           rel="noreferrer"
           class="flex items-center gap-2 transition hover:text-black"
@@ -138,6 +140,7 @@
         <!-- LEETCODE -->
         <a
           href="https://leetcode.com/u/attmhd"
+          aria-label="Muhammad Attan on LeetCode"
           target="_blank"
           rel="noreferrer"
           class="flex items-center gap-2 transition hover:text-black"
@@ -148,6 +151,7 @@
         <!-- MEDIUM -->
         <a
           href="https://attmhd.medium.com/"
+          aria-label="Muhammad Attan on Medium"
           target="_blank"
           rel="noreferrer"
           class="flex items-center gap-2 transition hover:text-black"

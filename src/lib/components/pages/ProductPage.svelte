@@ -1,14 +1,3 @@
-<script lang="ts">
-  import ProjectsPage from './ProjectsPage.svelte';
-  import type { Project } from '$lib/data/projects';
-
-  let {
-    onSelectProject
-  }: {
-    onSelectProject: (project: Project) => void;
-  } = $props();
-</script>
-
 <section class="border-b border-gray-200 bg-white px-7 py-8">
   <p class="text-sm font-medium text-gray-500">Currently building</p>
   <h2 class="mt-2 font-hand text-3xl text-black">Products in development</h2>

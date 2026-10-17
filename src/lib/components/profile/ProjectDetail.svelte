@@ -4,9 +4,8 @@
 
   import type { Project } from '$lib/data/projects';
 
-  let { project, onBack }: {
+  let { project }: {
     project: Project;
-    onBack: () => void;
   } = $props();
 
   let activeImage = $state(0);
@@ -17,14 +16,13 @@
   <div
     class="flex items-center justify-between border-b border-gray-100 px-6 py-4 sm:px-8"
   >
-    <button
-      type="button"
-      onclick={onBack}
+    <a
+      href="/projects"
       class="group flex items-center gap-2 text-sm text-gray-500 transition hover:text-black"
     >
       <Icon icon="lucide:arrow-left" width={15} height={15} class="transition-transform group-hover:-translate-x-1" />
       <span>Projects</span>
-    </button>
+    </a>
 
     <span class="text-xs text-gray-400">
       {project.category}

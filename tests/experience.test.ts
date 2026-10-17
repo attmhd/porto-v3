@@ -18,28 +18,28 @@ describe('experience logo assets', () => {
     // Should import images properly
     assert.match(
       content,
-      /import\s+\w+\s+from\s+['"][^'"]*logo-avenir\.png['"]/,
-      'Should import logo-avenir.png'
+      /import\s+\w+\s+from\s+['"][^'"]*logo-avenir\.webp['"]/,
+      'Should import logo-avenir.webp'
     );
     assert.match(
       content,
-      /import\s+\w+\s+from\s+['"][^'"]*logo-orbit-future-academy\.png['"]/,
-      'Should import logo-orbit-future-academy.png'
+      /import\s+\w+\s+from\s+['"][^'"]*logo-orbit-future-academy\.webp['"]/,
+      'Should import logo-orbit-future-academy.webp'
     );
     assert.match(
       content,
-      /import\s+\w+\s+from\s+['"][^'"]*logo-stifarm\.png['"]/,
-      'Should import logo-stifarm.png'
+      /import\s+\w+\s+from\s+['"][^'"]*logo-stifarm\.webp['"]/,
+      'Should import logo-stifarm.webp'
     );
     assert.match(
       content,
-      /import\s+\w+\s+from\s+['"][^'"]*logo-appskep\.jpeg['"]/,
-      'Should import logo-appskep.jpeg'
+      /import\s+\w+\s+from\s+['"][^'"]*logo-appskep\.webp['"]/,
+      'Should import logo-appskep.webp'
     );
     assert.match(
       content,
-      /import\s+\w+\s+from\s+['"][^'"]*logo-bangkit\.png['"]/,
-      'Should import logo-bangkit.png'
+      /import\s+\w+\s+from\s+['"][^'"]*logo-bangkit\.webp['"]/,
+      'Should import logo-bangkit.webp'
     );
   });
 

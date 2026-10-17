@@ -4,14 +4,6 @@
   import Stack from '../profile/Stack.svelte';
   import Achievements from '../profile/Achievements.svelte';
 
-  import type { Project } from '$lib/data/projects';
-
-  let {
-    onSelectProject
-  }: {
-    onSelectProject: (project: Project) => void;
-  } = $props();
-
   const separatorStyle =
     'background: repeating-linear-gradient(-45deg, #fff 0px, #fff 9px, #e5e7eb 9px, #e5e7eb 10px);';
 </script>

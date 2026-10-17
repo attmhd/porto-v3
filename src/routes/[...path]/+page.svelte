@@ -10,38 +10,19 @@
   import ProjectDetail from '$lib/components/profile/ProjectDetail.svelte';
   import Footer from '$lib/components/profile/Footer.svelte';
 
-  import type { Project } from '$lib/data/projects';
-
-  type MenuName = 'Home' | 'Projects' | 'Product' | 'Certificates';
-
-  let activeMenu = $state<MenuName>('Home');
-  let selectedProject = $state<Project | null>(null);
+  import type { PageData } from './$types';
+  let { data }: { data: PageData } = $props();
+  const activeMenu = $derived(data.menu);
+  const selectedProject = $derived(data.project);
+  
   let PixelBlast = $state<typeof import('$lib/components/PixelBlast.svelte').default | null>(null);
 
   onMount(() => {
-    const loadPixelBlast = async () => {
+    const idle = window.setTimeout(async () => {
       PixelBlast = (await import('$lib/components/PixelBlast.svelte')).default;
-    };
-    const idle = window.setTimeout(loadPixelBlast, 2000);
-
-    return () => {
-      window.clearTimeout(idle);
-    };
+    }, 2000);
+    return () => window.clearTimeout(idle);
   });
-
-  function changeMenu(menu: MenuName) {
-    activeMenu = menu;
-    selectedProject = null;
-  }
-
-  function openProject(project: Project) {
-    selectedProject = project;
-  }
-
-  function backToProjects() {
-    selectedProject = null;
-    activeMenu = 'Projects';
-  }
 
   const separatorStyle =
     'background: repeating-linear-gradient(-45deg, #fff 0px, #fff 9px, #e5e7eb 9px, #e5e7eb 10px);';
@@ -61,7 +42,7 @@
   />
 {/if}
 
-<!-- <Intro /> -->
+
 
 <main class="relative z-10 border-x border-gray-200">
   <div class="mx-auto max-w-3xl bg-white">
@@ -69,21 +50,22 @@
 
     <ProfileNav
       activeMenu={activeMenu}
-      onMenuChange={changeMenu}
     />
 
 
+    {#if !selectedProject && activeMenu !== 'Home'}
+      <h2 class="sr-only">{activeMenu}</h2>
+    {/if}
     {#if selectedProject}
       <ProjectDetail
         project={selectedProject}
-        onBack={backToProjects}
       />
     {:else if activeMenu === 'Home'}
-      <HomePage onSelectProject={openProject} />
+      <HomePage />
     {:else if activeMenu === 'Projects'}
-      <ProjectsPage onSelectProject={openProject} />
+      <ProjectsPage />
     {:else if activeMenu === 'Product'}
-      <ProductPage onSelectProject={openProject} />
+      <ProductPage />
     {:else if activeMenu === 'Certificates'}
       <CertificatesPage />
     {/if}

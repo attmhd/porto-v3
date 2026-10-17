@@ -9,7 +9,7 @@ describe('ProfileHeader metadata layout', () => {
     const content = fs.readFileSync(filePath, 'utf-8');
 
     // Social media links should be enclosed in a right-aligned container (e.g. ml-auto)
-    const socialContainerRegex = /<div class="[^"]*ml-auto[^"]*flex[^"]*">([\s\S]*?)<\/div>/;
+    const socialContainerRegex = /<div class="(?=[^"]*ml-auto)(?=[^"]*flex)[^"]*">([\s\S]*?)<\/div>/;
     const match = content.match(socialContainerRegex);
 
     assert.ok(match, 'Expected a social container with ml-auto class');
@@ -37,11 +37,11 @@ describe('ProfileHeader metadata layout', () => {
     assert.ok(!content.includes('FOX MASCOT'), 'ProfileHeader should not contain mascot section');
   });
 
-  it('should render an "Open to work" chat bubble with tail above the profile photo', () => {
+  it('should render a hiring chat bubble with tail above the profile photo', () => {
     const filePath = path.resolve('src/lib/components/profile/ProfileHeader.svelte');
     const content = fs.readFileSync(filePath, 'utf-8');
 
-    assert.match(content, /open\s+to\s+work/i, 'Should display "Open to work" text');
+    assert.match(content, /hire\s+me\s+bang/i, 'Should display the hiring message');
     assert.match(content, /data-testid="thought-bubble"/, 'Should render thought bubble');
     assert.match(content, /data-testid="thought-dot-lg"/, 'Should render large thought dot');
     assert.match(content, /data-testid="thought-dot-sm"/, 'Should render small thought dot');

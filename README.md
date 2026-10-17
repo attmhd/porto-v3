@@ -17,7 +17,7 @@ This project was developed from [rasyidMuhammad12/rsydspace](https://github.com/
 
 ## Requirements
 
-- Node.js 18+
+- Node.js 22.18+ (or 24+)
 - pnpm
 
 ## Development
@@ -41,7 +41,7 @@ Open the local URL shown by Vite, usually `http://localhost:5173`.
 Run the Svelte type and template checks:
 
 ```sh
-pnpm check
+pnpm run check
 ```
 
 ## Production
@@ -49,7 +49,7 @@ pnpm check
 Build the application:
 
 ```sh
-pnpm build
+pnpm run build
 ```
 
 Preview the production build locally:

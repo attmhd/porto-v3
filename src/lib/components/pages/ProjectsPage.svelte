@@ -1,13 +1,7 @@
 
 <script lang="ts">
   import Icon from '@iconify/svelte';
-  import { projects, type Project } from '$lib/data/projects';
-
-  let {
-    onSelectProject
-  }: {
-    onSelectProject: (project: Project) => void;
-  } = $props();
+  import { projects } from '$lib/data/projects';
 
   const projectsPerPage = 6;
   let currentPage = $state(1);
@@ -23,9 +17,8 @@
 <section class="bg-white">
   <div class="grid grid-cols-1 sm:grid-cols-2">
     {#each visibleProjects as project, index (project.id)}
-      <button
-        type="button"
-        onclick={() => onSelectProject(project)}
+      <a
+        href={`/projects/${project.id}`}
         aria-label={`View project details: ${project.title}`}
         class={`group flex min-w-0 flex-col border-b border-gray-200 p-5 text-left transition-colors hover:bg-gray-50 sm:p-6 ${
           index % 2 === 0 ? 'sm:border-r' : ''
@@ -73,7 +66,7 @@
             </span>
           {/each}
         </div>
-      </button>
+      </a>
     {/each}
   </div>
 
