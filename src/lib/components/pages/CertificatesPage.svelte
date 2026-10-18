@@ -73,10 +73,23 @@
         </div>
 
         <!-- ISSUER -->
-        <p class="mt-1 flex items-center gap-1.5 text-xs font-medium text-gray-600">
-          <Icon icon="lucide:badge-check" width={14} height={14} class="shrink-0 text-gray-500" />
-          <span>{item.issuer}</span>
-        </p>
+        <div class="mt-1 flex items-center justify-between gap-3">
+          <p class="flex items-center gap-1.5 text-xs font-medium text-gray-600">
+            <Icon icon="lucide:badge-check" width={14} height={14} class="shrink-0 text-gray-500" />
+            <span>{item.issuer}</span>
+          </p>
+          {#if item.credentialUrl}
+            <a
+              href={item.credentialUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex shrink-0 items-center gap-1.5 text-xs font-medium text-gray-700 transition hover:text-black"
+            >
+              <span>View Credential</span>
+              <Icon icon="lucide:arrow-up-right" width={13} height={13} />
+            </a>
+          {/if}
+        </div>
 
         <!-- DESCRIPTION -->
         <p class="mt-3 flex-1 text-sm leading-6 text-justify text-gray-600">
@@ -93,21 +106,6 @@
             </span>
           {/each}
         </div>
-
-        <!-- CREDENTIAL LINK -->
-        {#if item.credentialUrl}
-          <div class="mt-4 pt-2 border-t border-gray-100">
-            <a
-              href={item.credentialUrl}
-              target="_blank"
-              rel="noreferrer"
-              class="inline-flex items-center gap-1.5 text-xs font-medium text-gray-700 hover:text-black transition"
-            >
-              <span>View Credential</span>
-              <Icon icon="lucide:arrow-up-right" width={13} height={13} />
-            </a>
-          </div>
-        {/if}
       </article>
     {/each}
   </div>
