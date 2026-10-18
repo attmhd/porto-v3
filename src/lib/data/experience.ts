@@ -3,6 +3,7 @@ import logoOrbit from '$lib/assets/images/logo-orbit-future-academy.webp';
 import logoStifarm from '$lib/assets/images/logo-stifarm.webp';
 import logoAppskep from '$lib/assets/images/logo-appskep.webp';
 import logoBangkit from '$lib/assets/images/logo-bangkit.webp';
+import logoNatta from '$lib/assets/images/natta-icon.png';
 
 export type ExperienceItem = {
   company: string;
@@ -30,15 +31,27 @@ export const experiences: ExperienceItem[] = [
   },
   {
     company: 'Orbit Future Academy',
-    role: 'Cloud Computing Cohort',
+    role: 'AWS re/Start Trainee',
     type: 'Remote',
     logo: logoOrbit,
     period: 'Mar 2026 - Jun 2026',
     description: [
-      'Completed hands-on training in cloud computing fundamentals and AWS technologies.',
-      'Practiced Linux, networking, databases, security, and Python.',
+      'Completed the AWS re/Start cloud computing training program through Orbit Future Academy.',
+      'Built foundational skills in AWS, Linux, networking, databases, security, and Python through hands-on learning.',
     ],
     tags: ['AWS', 'Cloud Computing', 'Linux', 'Networking', 'Python', 'Databases'],
+  },
+  {
+    company: 'Natta Std',
+    role: 'Founder & Product Wizard',
+    type: 'Mini Digital Studio',
+    logo: logoNatta,
+    period: 'Oct 2025 - Present',
+    description: [
+      'Currently developing Natta POS, Natta NFC, and Natta SBC.',
+      'Contribute to product planning and hands-on software development alongside the team.',
+    ],
+    tags: ['Product Development', 'Software Development', 'POS', 'NFC'],
   },
   {
     company: 'STIFARM Padang',
@@ -73,8 +86,9 @@ export const experiences: ExperienceItem[] = [
     logo: logoBangkit,
     period: 'Sep 2024 - Dec 2024',
     description: [
-      'Participated in a Google-backed program focused on machine learning.',
-      'Studied TensorFlow and cloud deployment.',
+      'Completed the intensive Machine Learning learning path in Bangkit Academy 2024, a Google-led program developed with Indonesia’s Ministry of Education, Culture, Research, and Technology.',
+      'Studied Python, machine learning, TensorFlow, computer vision, and cloud deployment through more than 900 hours of technical learning, soft skills, English, and hands-on projects.',
+      'Bangkit was supported by industry founding partners including GoTo and Traveloka.',
     ],
     tags: ['Python', 'Machine Learning', 'Computer Vision', 'TensorFlow', 'Image Classification'],
   },
