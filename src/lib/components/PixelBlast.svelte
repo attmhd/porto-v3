@@ -582,6 +582,10 @@
 
       const height = container.clientHeight || 1;
 
+      // Release GPU storage before changing the canvas texture dimensions.
+      if (textCanvas.width !== width || textCanvas.height !== height) {
+        textTexture.dispose();
+      }
       textCanvas.width = width;
       textCanvas.height = height;
       textContext.fillStyle = '#000';
@@ -649,11 +653,13 @@
       clickIndex = (clickIndex + 1) % MAX_CLICKS;
     };
     window.addEventListener('pointerdown', handlePointerDown);
-    const clock = new THREE.Clock();
+    const timer = new THREE.Timer();
+    timer.connect(document);
 
     let animationFrame = 0;
     const animate = () => {
-      uniforms.uTime.value = clock.getElapsedTime() * speed;
+      timer.update();
+      uniforms.uTime.value = timer.getElapsed() * speed;
 
       renderer.render(scene, camera);
 
@@ -664,6 +670,7 @@
 
     return () => {
       cancelAnimationFrame(animationFrame);
+      timer.dispose();
       resizeObserver.disconnect();
       window.removeEventListener('pointerdown', handlePointerDown);
       geometry.dispose();
