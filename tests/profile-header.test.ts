@@ -9,7 +9,8 @@ describe('ProfileHeader metadata layout', () => {
     const content = fs.readFileSync(filePath, 'utf-8');
 
     // Social media links should be enclosed in a right-aligned container (e.g. ml-auto)
-    const socialContainerRegex = /<div class="(?=[^"]*ml-auto)(?=[^"]*flex)[^"]*">([\s\S]*?)<\/div>/;
+    const socialContainerRegex =
+      /<div class="(?=[^"]*ml-auto)(?=[^"]*flex)[^"]*">([\s\S]*?)<\/div>/;
     const match = content.match(socialContainerRegex);
 
     assert.ok(match, 'Expected a social container with ml-auto class');
@@ -17,15 +18,15 @@ describe('ProfileHeader metadata layout', () => {
 
     assert.ok(
       socialBlock.includes('simple-icons:linkedin') || socialBlock.includes('linkedin.com'),
-      'LinkedIn should be inside the right-aligned social container'
+      'LinkedIn should be inside the right-aligned social container',
     );
     assert.ok(
       socialBlock.includes('simple-icons:medium') || socialBlock.includes('medium.com'),
-      'Medium should be inside the right-aligned social container'
+      'Medium should be inside the right-aligned social container',
     );
     assert.ok(
       socialBlock.includes('simple-icons:leetcode') && socialBlock.includes('leetcode.com'),
-      'LeetCode icon and link should be inside the right-aligned social container'
+      'LeetCode icon and link should be inside the right-aligned social container',
     );
   });
 
@@ -33,7 +34,10 @@ describe('ProfileHeader metadata layout', () => {
     const filePath = path.resolve('src/lib/components/profile/ProfileHeader.svelte');
     const content = fs.readFileSync(filePath, 'utf-8');
 
-    assert.ok(!content.includes('ProfileMascot'), 'ProfileHeader should not import or render ProfileMascot');
+    assert.ok(
+      !content.includes('ProfileMascot'),
+      'ProfileHeader should not import or render ProfileMascot',
+    );
     assert.ok(!content.includes('FOX MASCOT'), 'ProfileHeader should not contain mascot section');
   });
 

@@ -19,5 +19,5 @@ export const profileData: ProfileData = {
   website: 'https://attmhd.me',
   websiteDisplay: 'attmhd.me',
   linkedin: 'https://linkedin.com/in/attmhd',
-  github: 'https://github.com/attmhd'
+  github: 'https://github.com/attmhd',
 };

@@ -31,7 +31,7 @@ describe('certificates data', () => {
   it('toEmbedUrl converts Google Drive share links to /preview', () => {
     assert.equal(
       toEmbedUrl('https://drive.google.com/file/d/abc123/view?usp=sharing'),
-      'https://drive.google.com/file/d/abc123/preview'
+      'https://drive.google.com/file/d/abc123/preview',
     );
     assert.equal(toEmbedUrl('/certificates/a.pdf'), '/certificates/a.pdf');
   });

@@ -1,4 +1,3 @@
-
 <script lang="ts">
   import Icon from '@iconify/svelte';
   import { projects } from '$lib/data/projects';
@@ -7,10 +6,7 @@
   let currentPage = $state(1);
   const totalPages = Math.ceil(projects.length / projectsPerPage);
   const visibleProjects = $derived(
-    projects.slice(
-      (currentPage - 1) * projectsPerPage,
-      currentPage * projectsPerPage
-    )
+    projects.slice((currentPage - 1) * projectsPerPage, currentPage * projectsPerPage),
   );
 </script>
 
@@ -44,7 +40,9 @@
         </p>
 
         <!-- PROJECT IMAGE -->
-        <div class="relative mt-4 aspect-4/2.5 w-full overflow-hidden rounded-lg border border-gray-200 bg-gray-100">
+        <div
+          class="relative mt-4 aspect-4/2.5 w-full overflow-hidden rounded-lg border border-gray-200 bg-gray-100"
+        >
           <img
             src={project.image}
             alt={`${project.title} project preview`}

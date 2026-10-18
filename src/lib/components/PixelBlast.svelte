@@ -31,8 +31,8 @@
     rippleThickness = 0.12,
     rippleIntensityScale = 1.5,
     speed = 0.5,
-    edgeFade = 0.20,
-    transparent = true
+    edgeFade = 0.2,
+    transparent = true,
   }: Props = $props();
 
   let container: HTMLDivElement;
@@ -41,7 +41,7 @@
     square: 0,
     circle: 1,
     triangle: 2,
-    diamond: 3
+    diamond: 3,
   };
 
   const MAX_CLICKS = 10;
@@ -469,47 +469,27 @@
   onMount(() => {
     if (!container) return;
 
-    const renderer =
-      new THREE.WebGLRenderer({
-        antialias: true,
-        alpha: true,
-        powerPreference:
-          'high-performance'
-      });
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+      powerPreference: 'high-performance',
+    });
 
-    renderer.setPixelRatio(
-      Math.min(
-        window.devicePixelRatio || 1,
-        2
-      )
-    );
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
-    renderer.domElement.style.width =
-      '100%';
+    renderer.domElement.style.width = '100%';
 
-    renderer.domElement.style.height =
-      '100%';
+    renderer.domElement.style.height = '100%';
 
-    container.appendChild(
-      renderer.domElement
-    );
+    container.appendChild(renderer.domElement);
 
     if (transparent) {
       renderer.setClearAlpha(0);
     }
 
-    const scene =
-      new THREE.Scene();
+    const scene = new THREE.Scene();
 
-    const camera =
-      new THREE.OrthographicCamera(
-        -1,
-        1,
-        1,
-        -1,
-        0,
-        1
-      );
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
     const textCanvas = document.createElement('canvas');
     const textContext = textCanvas.getContext('2d')!;
@@ -521,114 +501,86 @@
       uTextMask: { value: textTexture },
       uTextCenters: { value: new THREE.Vector2() },
       uResolution: {
-        value:
-          new THREE.Vector2()
+        value: new THREE.Vector2(),
       },
 
       uTime: {
-        value: 0
+        value: 0,
       },
 
       uColor: {
-        value:
-          new THREE.Color(color)
+        value: new THREE.Color(color),
       },
 
       uPixelSize: {
-        value:
-          pixelSize *
-          renderer.getPixelRatio()
+        value: pixelSize * renderer.getPixelRatio(),
       },
 
       uScale: {
-        value: patternScale
+        value: patternScale,
       },
 
       uDensity: {
-        value: patternDensity
+        value: patternDensity,
       },
 
       uPixelJitter: {
-        value: pixelSizeJitter
+        value: pixelSizeJitter,
       },
 
       uEnableRipples: {
-        value:
-          enableRipples ? 1 : 0
+        value: enableRipples ? 1 : 0,
       },
 
       uRippleSpeed: {
-        value: rippleSpeed
+        value: rippleSpeed,
       },
 
       uRippleThickness: {
-        value: rippleThickness
+        value: rippleThickness,
       },
 
       uRippleIntensity: {
-        value:
-          rippleIntensityScale
+        value: rippleIntensityScale,
       },
 
       uEdgeFade: {
-        value: edgeFade
+        value: edgeFade,
       },
 
       uShapeType: {
-        value:
-          SHAPE_MAP[variant]
+        value: SHAPE_MAP[variant],
       },
 
       uClickPos: {
-        value:
-          Array.from(
-            {
-              length: MAX_CLICKS
-            },
-            () =>
-              new THREE.Vector2(
-                -1,
-                -1
-              )
-          )
+        value: Array.from(
+          {
+            length: MAX_CLICKS,
+          },
+          () => new THREE.Vector2(-1, -1),
+        ),
       },
       uClickTimes: {
-        value:
-          new Float32Array(
-            MAX_CLICKS
-          )
-      }
+        value: new Float32Array(MAX_CLICKS),
+      },
     };
-    const material =
-      new THREE.ShaderMaterial({
-        vertexShader,
-        fragmentShader,
-        uniforms,
-        transparent: true,
-        depthTest: false,
-        depthWrite: false,
+    const material = new THREE.ShaderMaterial({
+      vertexShader,
+      fragmentShader,
+      uniforms,
+      transparent: true,
+      depthTest: false,
+      depthWrite: false,
 
-        glslVersion:
-          THREE.GLSL3
-      });
-    const geometry =
-      new THREE.PlaneGeometry(
-        2,
-        2
-      );
-    const mesh =
-      new THREE.Mesh(
-        geometry,
-        material
-      );
+      glslVersion: THREE.GLSL3,
+    });
+    const geometry = new THREE.PlaneGeometry(2, 2);
+    const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
     const resize = () => {
+      const width = container.clientWidth || 1;
 
-      const width =
-        container.clientWidth || 1;
-
-      const height =
-        container.clientHeight || 1;
+      const height = container.clientHeight || 1;
 
       textCanvas.width = width;
       textCanvas.height = height;
@@ -645,163 +597,98 @@
         textContext.textAlign = 'center';
         textContext.textBaseline = 'middle';
         textContext.fillStyle = '#fff';
-        for (const [word, x] of [['INFO', gutter / 2], ['LOKER', width - gutter / 2]] as const) {
+        for (const [word, x] of [
+          ['INFO', gutter / 2],
+          ['LOKER', width - gutter / 2],
+        ] as const) {
           [...word].forEach((letter, index) => {
-            textContext.fillText(letter, x, height / 2 + (index - (word.length - 1) / 2) * lineHeight);
+            textContext.fillText(
+              letter,
+              x,
+              height / 2 + (index - (word.length - 1) / 2) * lineHeight,
+            );
           });
         }
       }
       textTexture.needsUpdate = true;
 
-      renderer.setSize(
-        width,
-        height,
-        false
-      );
+      renderer.setSize(width, height, false);
 
-      uniforms.uResolution.value.set(
-        renderer.domElement.width,
-        renderer.domElement.height
-      );
+      uniforms.uResolution.value.set(renderer.domElement.width, renderer.domElement.height);
 
-      uniforms.uPixelSize.value =
-        pixelSize *
-        renderer.getPixelRatio();
+      uniforms.uPixelSize.value = pixelSize * renderer.getPixelRatio();
     };
 
     resize();
 
-    const resizeObserver =
-      new ResizeObserver(
-        resize
-      );
+    const resizeObserver = new ResizeObserver(resize);
 
-    resizeObserver.observe(
-      container
-    );
+    resizeObserver.observe(container);
 
     let clickIndex = 0;
 
-    const getPointerPosition = (
-      event: PointerEvent
-    ) => {
+    const getPointerPosition = (event: PointerEvent) => {
+      const rect = renderer.domElement.getBoundingClientRect();
 
-      const rect =
-        renderer.domElement
-          .getBoundingClientRect();
+      const scaleX = renderer.domElement.width / rect.width;
 
-      const scaleX =
-        renderer.domElement.width /
-        rect.width;
+      const scaleY = renderer.domElement.height / rect.height;
 
-      const scaleY =
-        renderer.domElement.height /
-        rect.height;
+      const x = (event.clientX - rect.left) * scaleX;
 
-      const x =
-        (event.clientX -
-          rect.left) *
-        scaleX;
-
-      const y =
-        (rect.height -
-          (event.clientY -
-            rect.top)) *
-        scaleY;
+      const y = (rect.height - (event.clientY - rect.top)) * scaleY;
 
       return { x, y };
     };
 
-    const handlePointerDown = (
-      event: PointerEvent
-    ) => {
+    const handlePointerDown = (event: PointerEvent) => {
       if (!enableRipples) return;
-      const {
-        x,
-        y
-      } =
-        getPointerPosition(
-          event
-        );
-      uniforms
-        .uClickPos
-        .value[clickIndex]
-        .set(x, y);
-      uniforms
-        .uClickTimes
-        .value[clickIndex] =
-        uniforms.uTime.value;
-      clickIndex =
-        (clickIndex + 1) %
-        MAX_CLICKS;
+      const { x, y } = getPointerPosition(event);
+      uniforms.uClickPos.value[clickIndex].set(x, y);
+      uniforms.uClickTimes.value[clickIndex] = uniforms.uTime.value;
+      clickIndex = (clickIndex + 1) % MAX_CLICKS;
     };
-    window.addEventListener(
-      'pointerdown',
-      handlePointerDown
-    );
-    const clock =
-      new THREE.Clock();
+    window.addEventListener('pointerdown', handlePointerDown);
+    const clock = new THREE.Clock();
 
     let animationFrame = 0;
     const animate = () => {
-      uniforms.uTime.value =
-        clock.getElapsedTime() *
-        speed;
+      uniforms.uTime.value = clock.getElapsedTime() * speed;
 
-      renderer.render(
-        scene,
-        camera
-      );
+      renderer.render(scene, camera);
 
-      animationFrame =
-        requestAnimationFrame(
-          animate
-        );
+      animationFrame = requestAnimationFrame(animate);
     };
 
     animate();
 
     return () => {
-      cancelAnimationFrame(
-        animationFrame
-      );
+      cancelAnimationFrame(animationFrame);
       resizeObserver.disconnect();
-      window.removeEventListener(
-        'pointerdown',
-        handlePointerDown
-      );
+      window.removeEventListener('pointerdown', handlePointerDown);
       geometry.dispose();
       material.dispose();
       textTexture.dispose();
       renderer.dispose();
       renderer.forceContextLoss();
-      if (
-        renderer.domElement
-          .parentElement ===
-        container
-      ) {
-        container.removeChild(
-          renderer.domElement
-        );
+      if (renderer.domElement.parentElement === container) {
+        container.removeChild(renderer.domElement);
       }
     };
   });
 </script>
-<div
-  bind:this={container}
-  class="pixel-blast"
-  aria-hidden="true"
-></div>
+
+<div bind:this={container} class="pixel-blast" aria-hidden="true"></div>
 
 <style>
   .pixel-blast {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-  background: #EBEDF0;
-}
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background: #ebedf0;
+  }
 </style>

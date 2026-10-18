@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Icon from "@iconify/svelte";
-  import ProfilePict from "../../assets/images/image1-1024.webp";
-  import ProfilePictMedium from "../../assets/images/image1-512.webp";
-  import ProfilePictSmall from "../../assets/images/image1-256.webp";
-  import background from "../../assets/images/background.webp";
-  import { profileData } from "$lib/data/profile";
+  import Icon from '@iconify/svelte';
+  import ProfilePict from '../../assets/images/image1-1024.webp';
+  import ProfilePictMedium from '../../assets/images/image1-512.webp';
+  import ProfilePictSmall from '../../assets/images/image1-256.webp';
+  import background from '../../assets/images/background.webp';
+  import { profileData } from '$lib/data/profile';
 </script>
 
 <section class="bg-white px-7 pb-7">
@@ -45,9 +45,7 @@
     <!-- PROFILE PHOTO -->
     <div class="absolute -top-16 left-0 z-40">
       <!-- PHOTO -->
-      <div
-        class="h-32 w-32 overflow-hidden rounded-3xl border-6 border-white bg-gray-200"
-      >
+      <div class="h-32 w-32 overflow-hidden rounded-3xl border-6 border-white bg-gray-200">
         <img
           src={ProfilePict}
           alt="Muhammad Attan"
@@ -78,17 +76,13 @@
 
     <!-- NAME -->
     <div class="mt-10">
-      <h1 class="text-3xl font-semibold tracking-tight text-black">
-        Muhammad Attan
-      </h1>
+      <h1 class="text-3xl font-semibold tracking-tight text-black">Muhammad Attan</h1>
 
       <p class="text-base text-gray-500">@attmhd</p>
     </div>
 
     <!-- BIO -->
-    <p
-      class="mt-6 max-w-2xl text-justify text-[17px] leading-tight text-gray-800"
-    >
+    <p class="mt-6 max-w-2xl text-justify text-[17px] leading-tight text-gray-800">
       {profileData.bio}
     </p>
 

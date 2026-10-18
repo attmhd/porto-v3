@@ -2,14 +2,10 @@
   import Icon from '@iconify/svelte';
   import { STACK_CONTENT } from '$lib/data/stack';
 </script>
-<section
-  id="stack"
-  class="bg-white"
->
+
+<section id="stack" class="bg-white">
   <!-- SECTION TITLE -->
-  <h2
-    class="border-b border-gray-300 px-7 py-5 font-hand text-3xl leading-none text-black"
-  >
+  <h2 class="border-b border-gray-300 px-7 py-5 font-hand text-3xl leading-none text-black">
     Tech Stack
   </h2>
   <!-- STACK ITEMS -->

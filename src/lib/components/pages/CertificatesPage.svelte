@@ -34,26 +34,32 @@
               tabindex="-1"
               class="pointer-events-none h-full w-full"
             ></iframe>
-            <span class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition group-hover:bg-black/30 group-hover:opacity-100">
+            <span
+              class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition group-hover:bg-black/30 group-hover:opacity-100"
+            >
               <Icon icon="lucide:maximize-2" width={28} height={28} class="text-white" />
             </span>
           </button>
         {:else}
-        <div class="relative aspect-16/10 w-full overflow-hidden rounded-xl border border-gray-200 bg-gray-100">
-          {#if item.image}
-            <img
-              src={item.image}
-              alt={item.title}
-              loading="lazy"
-              class="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.03]"
-            />
-          {:else}
-            <div class="flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-gray-50 to-gray-100 text-gray-400">
-              <Icon icon="lucide:award" width={40} height={40} class="text-gray-400" />
-              <span class="text-xs font-mono text-gray-500">{item.issuer}</span>
-            </div>
-          {/if}
-        </div>
+          <div
+            class="relative aspect-16/10 w-full overflow-hidden rounded-xl border border-gray-200 bg-gray-100"
+          >
+            {#if item.image}
+              <img
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+                class="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.03]"
+              />
+            {:else}
+              <div
+                class="flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-gray-50 to-gray-100 text-gray-400"
+              >
+                <Icon icon="lucide:award" width={40} height={40} class="text-gray-400" />
+                <span class="text-xs font-mono text-gray-500">{item.issuer}</span>
+              </div>
+            {/if}
+          </div>
         {/if}
 
         <!-- TITLE + YEAR -->
@@ -80,7 +86,9 @@
         <!-- SKILLS / TAGS -->
         <div class="mt-4 flex flex-wrap gap-1.5">
           {#each item.skills as skill}
-            <span class="rounded-md border border-gray-200 bg-gray-50 px-2 py-0.5 font-mono text-[11px] text-gray-600">
+            <span
+              class="rounded-md border border-gray-200 bg-gray-50 px-2 py-0.5 font-mono text-[11px] text-gray-600"
+            >
               {skill}
             </span>
           {/each}
@@ -116,10 +124,21 @@
       <div class="flex items-center justify-between gap-3 border-b border-gray-200 px-4 py-3">
         <h3 class="truncate text-sm font-semibold text-black">{active.title}</h3>
         <div class="flex items-center gap-3 text-gray-500">
-          <a href={active.pdf} target="_blank" rel="noreferrer" aria-label="Open in new tab" class="hover:text-black">
+          <a
+            href={active.pdf}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open in new tab"
+            class="hover:text-black"
+          >
             <Icon icon="lucide:external-link" width={18} height={18} />
           </a>
-          <button type="button" onclick={() => dialog.close()} aria-label="Close" class="hover:text-black">
+          <button
+            type="button"
+            onclick={() => dialog.close()}
+            aria-label="Close"
+            class="hover:text-black"
+          >
             <Icon icon="lucide:x" width={20} height={20} />
           </button>
         </div>

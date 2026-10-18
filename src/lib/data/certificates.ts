@@ -17,21 +17,21 @@ export const certificates: Certificate[] = [
     title: 'ITS Python',
     issuer: 'Certiport',
     pdf: 'https://drive.google.com/file/d/1vxQaQQuCfa3g8Bnui-Zp7feS2vshnhJj/view?usp=sharing',
-    skills: ['Python', 'Programming']
+    skills: ['Python', 'Programming'],
   },
   {
     id: 'dev-certified-machine-learning-tensorflow',
     title: 'Dev Certified for Machine Learning with TensorFlow',
     issuer: 'Dev Certified',
     pdf: 'https://drive.google.com/file/d/1Ociwp3m0Tm0SfVJX13Zvp_aQs2Wbdml9/view?usp=sharing',
-    skills: ['Machine Learning', 'TensorFlow', 'Python']
+    skills: ['Machine Learning', 'TensorFlow', 'Python'],
   },
   {
     id: 'agile-scrum-fundamentals',
     title: 'Agile Scrum Fundamentals',
     issuer: 'MindMagine',
     pdf: 'https://drive.google.com/file/d/1s8TOSbyDPv16mI1iGBD3DFN6qPK5802w/view?usp=sharing',
-    skills: ['Agile', 'Scrum', 'Team Collaboration']
+    skills: ['Agile', 'Scrum', 'Team Collaboration'],
   },
 ];
 

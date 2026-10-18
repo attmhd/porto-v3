@@ -1,10 +1,11 @@
-
 <script lang="ts">
   import Icon from '@iconify/svelte';
 
   import type { Project } from '$lib/data/projects';
 
-  let { project }: {
+  let {
+    project,
+  }: {
     project: Project;
   } = $props();
 
@@ -13,14 +14,17 @@
 
 <section class="bg-white text-black">
   <!-- HEADER -->
-  <div
-    class="flex items-center justify-between border-b border-gray-100 px-6 py-4 sm:px-8"
-  >
+  <div class="flex items-center justify-between border-b border-gray-100 px-6 py-4 sm:px-8">
     <a
       href="/projects"
       class="group flex items-center gap-2 text-sm text-gray-500 transition hover:text-black"
     >
-      <Icon icon="lucide:arrow-left" width={15} height={15} class="transition-transform group-hover:-translate-x-1" />
+      <Icon
+        icon="lucide:arrow-left"
+        width={15}
+        height={15}
+        class="transition-transform group-hover:-translate-x-1"
+      />
       <span>Projects</span>
     </a>
 
@@ -39,9 +43,7 @@
       {/if}
     </div>
 
-    <h1
-      class="mt-5 max-w-2xl text-3xl font-medium leading-tight tracking-tight sm:text-5xl"
-    >
+    <h1 class="mt-5 max-w-2xl text-3xl font-medium leading-tight tracking-tight sm:text-5xl">
       {project.title}
     </h1>
 
@@ -104,9 +106,7 @@
             type="button"
             aria-label="Previous image"
             onclick={() => {
-              activeImage =
-                (activeImage - 1 + project.gallery.length) %
-                project.gallery.length;
+              activeImage = (activeImage - 1 + project.gallery.length) % project.gallery.length;
             }}
             class="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-700 transition hover:bg-white hover:text-black sm:left-4"
           >
@@ -118,8 +118,7 @@
             type="button"
             aria-label="Next image"
             onclick={() => {
-              activeImage =
-                (activeImage + 1) % project.gallery.length;
+              activeImage = (activeImage + 1) % project.gallery.length;
             }}
             class="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-700 transition hover:bg-white hover:text-black sm:right-4"
           >
@@ -130,9 +129,7 @@
 
       <!-- CAROUSEL FOOTER -->
       <div class="flex items-center justify-between py-4">
-        <span class="text-xs text-gray-400">
-          Project Preview
-        </span>
+        <span class="text-xs text-gray-400"> Project Preview </span>
 
         {#if project.gallery.length > 1}
           <div class="flex items-center gap-2">
@@ -145,16 +142,17 @@
                   activeImage = index;
                 }}
                 class={`h-1.5 rounded-full transition-all duration-200 ${
-                  activeImage === index
-                    ? 'w-5 bg-black'
-                    : 'w-1.5 bg-gray-300 hover:bg-gray-500'
+                  activeImage === index ? 'w-5 bg-black' : 'w-1.5 bg-gray-300 hover:bg-gray-500'
                 }`}
               ></button>
             {/each}
           </div>
 
           <span class="font-mono text-xs text-gray-400">
-            {String(activeImage + 1).padStart(2, '0')} / {String(project.gallery.length).padStart(2, '0')}
+            {String(activeImage + 1).padStart(2, '0')} / {String(project.gallery.length).padStart(
+              2,
+              '0',
+            )}
           </span>
         {:else}
           <span class="text-xs text-gray-400">01 / 01</span>
@@ -168,7 +166,7 @@
   </div>
 
   <!-- PROJECT INFORMATION -->
-  <div class="mt-5 border-y border-gray-100 ">
+  <div class="mt-5 border-y border-gray-100">
     <div class="grid grid-cols-2 gap-y-7 px-6 py-7 sm:grid-cols-3 sm:px-10">
       <div>
         <p class="text-xs text-gray-400">Ownership</p>

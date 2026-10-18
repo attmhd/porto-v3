@@ -1,4 +1,3 @@
-
 <script lang="ts">
   import Icon from '@iconify/svelte';
   import footer from '../../assets/bawah.mp4';
@@ -14,16 +13,16 @@
     loop
     playsinline
     preload="none"
-    class="absolute inset-0 object-bottom  -z-20 h-full w-full object-cover"
+    class="absolute inset-0 object-bottom -z-20 h-full w-full object-cover"
   ></video>
 
   <!-- DARK GRADIENT OVERLAY -->
-<div class="absolute inset-0 -z-10 bg-linear-to-t from-black via-black/20 to-transparent"></div>
+  <div class="absolute inset-0 -z-10 bg-linear-to-t from-black via-black/20 to-transparent"></div>
 
   <!-- CONTENT -->
-  <div class="relative flex h-full items-end pb-9 px-6 sm:px-10 lg:px-16 ">
+  <div class="relative flex h-full items-end pb-9 px-6 sm:px-10 lg:px-16">
     <div class="max-w-5xl">
-      <h2 class="max-w-4xl  font-semibold sm:text-xl lg:text-2xl">
+      <h2 class="max-w-4xl font-semibold sm:text-xl lg:text-2xl">
         Building the future with data, AI, and code.
       </h2>
 
