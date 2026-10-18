@@ -9,7 +9,7 @@ export type ExperienceItem = {
   role: string;
   type: string;
   period: string;
-  description: string;
+  description: string[];
   tags: string[];
   logo?: string;
 };
@@ -21,9 +21,12 @@ export const experiences: ExperienceItem[] = [
     type: 'Remote',
     logo: logoAvenir,
     period: 'Sep 2026',
-    description:
-      'Developed and maintained a Laravel web application by implementing features, fixing bugs, and improving application workflows. Improved role-based access and registration flows, troubleshot email-service issues, and implemented HTTP security headers that improved the SecurityHeaders.com evaluation from Grade F to Grade A.',
-    tags: ['Laravel', 'PHP', 'MySQL', 'Role-based Access', 'Security Headers']
+    description: [
+      'Developed and maintained a Laravel web application by implementing features, fixing bugs, and improving application workflows.',
+      'Improved role-based access and registration flows, and troubleshot email-service issues.',
+      'Implemented HTTP security headers, improving the SecurityHeaders.com evaluation from Grade F to Grade A.',
+    ],
+    tags: ['Laravel', 'PHP', 'MySQL', 'Role-based Access', 'Security Headers'],
   },
   {
     company: 'Orbit Future Academy',
@@ -31,9 +34,11 @@ export const experiences: ExperienceItem[] = [
     type: 'Remote',
     logo: logoOrbit,
     period: 'Mar 2026 - Jun 2026',
-    description:
-      'Completed hands-on training in cloud computing fundamentals, Linux, networking, databases, security, Python, and AWS technologies.',
-    tags: ['AWS', 'Cloud Computing', 'Linux', 'Networking', 'Python', 'Databases']
+    description: [
+      'Completed hands-on training in cloud computing fundamentals and AWS technologies.',
+      'Practiced Linux, networking, databases, security, and Python.',
+    ],
+    tags: ['AWS', 'Cloud Computing', 'Linux', 'Networking', 'Python', 'Databases'],
   },
   {
     company: 'STIFARM Padang',
@@ -41,9 +46,12 @@ export const experiences: ExperienceItem[] = [
     type: 'Padang, Indonesia',
     period: 'Sep 2025 - Oct 2025',
     logo: logoStifarm,
-    description:
-      'Built an Android POS system using Kotlin and Jetpack Compose to digitize laboratory equipment and material usage transactions, replacing manual recording. Integrated PDF invoice generation and thermal receipt printing to streamline transaction documentation and reporting.',
-    tags: ['Kotlin', 'Jetpack Compose', 'Android', 'POS', 'PDF', 'Thermal Printing']
+    description: [
+      'Built an Android POS system using Kotlin and Jetpack Compose for laboratory equipment and material usage transactions.',
+      'Replaced manual transaction recording with a digital workflow.',
+      'Integrated PDF invoice generation and thermal receipt printing for transaction documentation and reporting.',
+    ],
+    tags: ['Kotlin', 'Jetpack Compose', 'Android', 'POS', 'PDF', 'Thermal Printing'],
   },
   {
     company: 'PT. Aplikasi Kriya Pratama',
@@ -51,9 +59,12 @@ export const experiences: ExperienceItem[] = [
     type: 'Padang, Indonesia',
     logo: logoAppskep,
     period: 'Jul 2025 - Sep 2025',
-    description:
-      'Designed and developed a Retrieval-Augmented Generation chatbot for contextual question answering from educational video content. Collaborated with the CTO on rapid prototyping and technical validation, integrating AI, backend, vector search, and caching components into a deployable architecture.',
-    tags: ['RAG', 'Python', 'FastAPI', 'Qdrant', 'Redis', 'Docker']
+    description: [
+      'Designed and developed a RAG chatbot for contextual question answering from educational video content.',
+      'Collaborated with the CTO on rapid prototyping and technical validation.',
+      'Integrated AI, backend, vector search, and caching components into a deployable architecture.',
+    ],
+    tags: ['RAG', 'Python', 'FastAPI', 'Qdrant', 'Redis', 'Docker'],
   },
   {
     company: 'Bangkit Academy',
@@ -61,8 +72,10 @@ export const experiences: ExperienceItem[] = [
     type: 'Remote',
     logo: logoBangkit,
     period: 'Sep 2024 - Dec 2024',
-    description:
-      'Google-backed program focused on machine learning, TensorFlow, and cloud deployment.',
-    tags: ['Python', 'Machine Learning', 'Computer Vision', 'TensorFlow', 'Image Classification']
-  }
+    description: [
+      'Participated in a Google-backed program focused on machine learning.',
+      'Studied TensorFlow and cloud deployment.',
+    ],
+    tags: ['Python', 'Machine Learning', 'Computer Vision', 'TensorFlow', 'Image Classification'],
+  },
 ];

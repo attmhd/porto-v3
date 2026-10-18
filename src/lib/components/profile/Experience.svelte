@@ -25,55 +25,47 @@
   <div>
     {#each experiences as experience, index}
       <article class="border-t border-gray-300">
-
         <!-- Company + Role -->
         <div class="px-7 py-7">
-
           <!-- Company -->
           <div class="flex items-center gap-5">
-
             <!-- Company Logo -->
-          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-xs font-semibold text-gray-500">
-            {#if experience.logo}
-              <img
-                src={experience.logo}
-                alt={experience.company}
-                width="40"
-                height="40"
-                decoding="async"
-                class="max-h-10 max-w-10 rounded-xl object-contain mix-blend-multiply"
-              />
-            {:else}
-              {experience.company.slice(0, 2).toUpperCase()}
-            {/if}
-          </div>
-            <!-- Company Name -->
-            <h3
-              class="text-xl font-semibold tracking-tight text-black"
+            <div
+              class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-xs font-semibold text-gray-500"
             >
+              {#if experience.logo}
+                <img
+                  src={experience.logo}
+                  alt={experience.company}
+                  width="40"
+                  height="40"
+                  decoding="async"
+                  class="max-h-10 max-w-10 rounded-xl object-contain mix-blend-multiply"
+                />
+              {:else}
+                {experience.company.slice(0, 2).toUpperCase()}
+              {/if}
+            </div>
+            <!-- Company Name -->
+            <h3 class="text-xl font-semibold tracking-tight text-black">
               {experience.company}
             </h3>
-
           </div>
 
           <!-- Role Timeline -->
           <div class="mt-4 flex">
-
             <!-- Timeline Icon + Line -->
             <div class="relative flex w-10 shrink-0 justify-center">
-
               <!-- Vertical Line -->
               {#if index < experiences.length - 1}
                 <div
                   class="absolute left-1/2 top-10 -bottom-7 w-px -translate-x-1/2 bg-gray-200"
                 ></div>
               {/if}
-
             </div>
 
             <!-- Role Content -->
             <div class="min-w-0 flex-1 pl-5">
-
               <!-- Clickable Role -->
               <button
                 type="button"
@@ -81,9 +73,7 @@
                 onclick={() => toggleExperience(index)}
                 aria-expanded={activeIndex === index}
               >
-                <span
-                  class="text-lg font-medium text-black"
-                >
+                <span class="text-lg font-medium text-black">
                   {experience.role}
                 </span>
 
@@ -98,21 +88,16 @@
               </button>
 
               <!-- Metadata -->
-              <div
-                class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-gray-500"
-              >
+              <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-gray-500">
                 <span>
                   {experience.type}
                 </span>
 
-                <span class="text-gray-300">
-                  |
-                </span>
+                <span class="text-gray-300"> | </span>
 
                 <span>
                   {experience.period}
                 </span>
-
               </div>
 
               <!-- TECH STACK -->
@@ -134,15 +119,16 @@
               >
                 <div class="overflow-hidden">
                   <div class="pt-5">
-                    <p
-                      class="max-w-2xl text-base leading-7 text-gray-600"
+                    <ul
+                      class="max-w-2xl list-disc space-y-3 pl-5 text-base leading-7 text-gray-600 marker:text-gray-400"
                     >
-                      {experience.description}
-                    </p>
+                      {#each experience.description as point}
+                        <li class="pl-1">{point}</li>
+                      {/each}
+                    </ul>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

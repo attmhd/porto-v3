@@ -12,34 +12,34 @@ describe('experience logo assets', () => {
     assert.doesNotMatch(
       content,
       /logo:\s*['"]src\//,
-      'Experience logos must not use raw unbundled "src/" paths'
+      'Experience logos must not use raw unbundled "src/" paths',
     );
 
     // Should import images properly
     assert.match(
       content,
       /import\s+\w+\s+from\s+['"][^'"]*logo-avenir\.webp['"]/,
-      'Should import logo-avenir.webp'
+      'Should import logo-avenir.webp',
     );
     assert.match(
       content,
       /import\s+\w+\s+from\s+['"][^'"]*logo-orbit-future-academy\.webp['"]/,
-      'Should import logo-orbit-future-academy.webp'
+      'Should import logo-orbit-future-academy.webp',
     );
     assert.match(
       content,
       /import\s+\w+\s+from\s+['"][^'"]*logo-stifarm\.webp['"]/,
-      'Should import logo-stifarm.webp'
+      'Should import logo-stifarm.webp',
     );
     assert.match(
       content,
       /import\s+\w+\s+from\s+['"][^'"]*logo-appskep\.webp['"]/,
-      'Should import logo-appskep.webp'
+      'Should import logo-appskep.webp',
     );
     assert.match(
       content,
       /import\s+\w+\s+from\s+['"][^'"]*logo-bangkit\.webp['"]/,
-      'Should import logo-bangkit.webp'
+      'Should import logo-bangkit.webp',
     );
   });
 
@@ -50,17 +50,13 @@ describe('experience logo assets', () => {
     assert.doesNotMatch(
       content,
       /<Icon\s+icon=\{getTechIcon\(tag\)\}/,
-      'Tech stack tags must not contain tech icon components'
+      'Tech stack tags must not contain tech icon components',
     );
-    assert.doesNotMatch(
-      content,
-      /const techIcons/,
-      'Unused techIcons mapping should be removed'
-    );
+    assert.doesNotMatch(content, /const techIcons/, 'Unused techIcons mapping should be removed');
     assert.doesNotMatch(
       content,
       /function getTechIcon/,
-      'Unused getTechIcon helper should be removed'
+      'Unused getTechIcon helper should be removed',
     );
   });
 });
