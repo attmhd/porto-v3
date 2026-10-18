@@ -6,7 +6,9 @@ assert.equal(sitemap.status, 200);
 assert.match(sitemap.headers.get('content-type'), /application\/xml/);
 const xml = await sitemap.text();
 const paths = [...xml.matchAll(/<loc>https:\/\/attmhd.me(.*?)<\/loc>/g)].map((match) => match[1]);
-assert.equal(paths.length, 22);
+assert.equal(paths.length, 27);
+for (const id of ['cekrek-studio', 'nantee', 'natta-pos'])
+  assert.ok(paths.includes(`/product/${id}`));
 const titles = new Set();
 for (const path of paths) {
   const response = await fetch(`${base}${path}`);
@@ -21,11 +23,34 @@ for (const path of paths) {
   const schema = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)?.[1];
   assert.equal(JSON.parse(schema)['@context'], 'https://schema.org');
   if (path === '/') assert.ok(html.includes('href="/projects"'));
+  if (path.startsWith('/achievements/')) {
+    for (const heading of [
+      'The problem',
+      'What we built',
+      'The vision',
+      'My role &amp; contributions',
+    ])
+      assert.ok(html.includes(heading), heading);
+  }
+  if (path.startsWith('/product/')) {
+    assert.match(html, /What it offers/);
+    assert.match(html, /noopener noreferrer/);
+  }
   if (path.startsWith('/projects/')) assert.match(html, /View Repository|Live Demo/);
 }
-for (const path of ['/missing-page', '/projects/missing-project', '/projects/project-mlops-thesis/extra']) {
+for (const path of [
+  '/missing-page',
+  '/achievements/missing-achievement',
+  '/achievements/pidi-semifinalist/extra',
+  '/product/missing-product',
+  '/product/nantee/extra',
+  '/projects/missing-project',
+  '/projects/project-mlops-thesis/extra',
+]) {
   const response = await fetch(`${base}${path}`);
   assert.equal(response.status, 404, path);
   assert.match(await response.text(), /noindex, follow/);
 }
-console.log(`SEO smoke passed: ${paths.length} server-rendered pages, unique metadata, valid JSON-LD, and real 404s.`);
+console.log(
+  `SEO smoke passed: ${paths.length} server-rendered pages, unique metadata, valid JSON-LD, and real 404s.`,
+);
