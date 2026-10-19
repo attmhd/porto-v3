@@ -1,5 +1,6 @@
 <script lang="ts">
   import Experience from '../profile/Experience.svelte';
+  import Education from '../profile/Education.svelte';
   import Stack from '../profile/Stack.svelte';
   import Achievements from '../profile/Achievements.svelte';
   import Publications from '../profile/Publications.svelte';
@@ -9,6 +10,10 @@
 </script>
 
 <Experience />
+
+<div class="h-10 border-y border-gray-200" style={separatorStyle}></div>
+
+<Education />
 
 <div class="h-10 border-y border-gray-200" style={separatorStyle}></div>
 
