@@ -1,6 +1,7 @@
 import { achievements } from '$lib/data/achievements';
 import { error } from '@sveltejs/kit';
 import { products } from '$lib/data/products';
+import { publications } from '$lib/data/publications';
 import { projects } from '$lib/data/projects';
 import type { PageServerLoad } from './$types';
 
@@ -38,6 +39,7 @@ export const load: PageServerLoad = ({ params }) => {
       project: null,
       product: null,
       achievement: null,
+      publication: null,
       canonical: `https://attmhd.me/${path}`,
     };
   }
@@ -50,6 +52,7 @@ export const load: PageServerLoad = ({ params }) => {
       project: null,
       product: null,
       achievement,
+      publication: null,
       canonical: `https://attmhd.me/${path}`,
     };
   const product = products.find((item) => path === `product/${item.id}`);
@@ -61,9 +64,22 @@ export const load: PageServerLoad = ({ params }) => {
       project: null,
       product,
       achievement: null,
+      publication: null,
       canonical: `https://attmhd.me/${path}`,
     };
   const project = projects.find((item) => path === `projects/${item.id}`);
+  const publication = publications.find((item) => path === `publications/${item.id}`);
+  if (publication)
+    return {
+      menu: 'Home' as const,
+      title: `${publication.title} | Muhammad Attan`,
+      description: publication.description,
+      project: null,
+      product: null,
+      achievement: null,
+      publication,
+      canonical: `https://attmhd.me/${path}`,
+    };
   if (!project) error(404, 'Page not found');
   return {
     menu: 'Projects' as const,
@@ -72,6 +88,7 @@ export const load: PageServerLoad = ({ params }) => {
     project,
     product: null,
     achievement: null,
+    publication: null,
     canonical: `https://attmhd.me/${path}`,
   };
 };

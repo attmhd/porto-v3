@@ -44,7 +44,7 @@ export const experiences: ExperienceItem[] = [
   {
     company: 'Natta Std',
     role: 'Product Wizard',
-    type: 'Mini Digital Studio',
+    type: 'Padang, Indonesia',
     logo: logoNatta,
     period: 'Oct 2025 - Present',
     description: [

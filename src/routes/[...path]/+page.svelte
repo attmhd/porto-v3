@@ -8,6 +8,7 @@
   import CertificatesPage from '$lib/components/pages/CertificatesPage.svelte';
   import ProductDetail from '$lib/components/profile/ProductDetail.svelte';
   import ProjectDetail from '$lib/components/profile/ProjectDetail.svelte';
+  import PublicationDetail from '$lib/components/profile/PublicationDetail.svelte';
   import AchievementDetail from '$lib/components/profile/AchievementDetail.svelte';
   import Footer from '$lib/components/profile/Footer.svelte';
 
@@ -17,6 +18,7 @@
   const activeMenu = $derived(data.menu);
   const selectedProduct = $derived(data.product);
   const selectedProject = $derived(data.project);
+  const selectedPublication = $derived(data.publication);
 
   let PixelBlast = $state<typeof import('$lib/components/PixelBlast.svelte').default | null>(null);
 
@@ -51,11 +53,13 @@
 
     <ProfileNav {activeMenu} />
 
-    {#if !selectedAchievement && !selectedProject && !selectedProduct && activeMenu !== 'Home'}
+    {#if !selectedAchievement && !selectedProject && !selectedProduct && !selectedPublication && activeMenu !== 'Home'}
       <h2 class="sr-only">{activeMenu}</h2>
     {/if}
     {#if selectedAchievement}
       <AchievementDetail achievement={selectedAchievement} />
+    {:else if selectedPublication}
+      <PublicationDetail publication={selectedPublication} />
     {:else if selectedProduct}
       <ProductDetail product={selectedProduct} />
     {:else if selectedProject}
