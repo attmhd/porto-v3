@@ -43,7 +43,7 @@ export const experiences: ExperienceItem[] = [
   },
   {
     company: 'Natta Std',
-    role: 'Founder & Product Wizard',
+    role: 'Product Wizard',
     type: 'Mini Digital Studio',
     logo: logoNatta,
     period: 'Oct 2025 - Present',
