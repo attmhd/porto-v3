@@ -27,13 +27,23 @@
             aria-label={`Open ${item.title} PDF`}
             class="group relative aspect-16/10 w-full cursor-zoom-in overflow-hidden rounded-xl border border-gray-200 bg-gray-100"
           >
-            <iframe
-              src={`${toEmbedUrl(item.pdf)}#toolbar=0&navpanes=0&view=FitH`}
-              title={item.title}
-              loading="lazy"
-              tabindex="-1"
-              class="pointer-events-none h-full w-full"
-            ></iframe>
+            {#if item.thumbnail}
+              <img
+                src={item.thumbnail}
+                alt={`${item.title} preview`}
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-contain"
+              />
+            {:else}
+              <iframe
+                src={`${toEmbedUrl(item.pdf)}#toolbar=0&navpanes=0&view=FitH`}
+                title={item.title}
+                loading="lazy"
+                tabindex="-1"
+                class="pointer-events-none h-full w-full"
+              ></iframe>
+            {/if}
             <span
               class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition group-hover:bg-black/30 group-hover:opacity-100"
             >
@@ -141,7 +151,18 @@
           </button>
         </div>
       </div>
-      <iframe src={toEmbedUrl(active.pdf)} title={active.title} class="w-full flex-1"></iframe>
+      {#if active.thumbnail}
+        <div class="flex min-h-0 flex-1 items-center justify-center bg-gray-100 p-3">
+          <img
+            src={active.thumbnail}
+            alt={`${active.title} preview`}
+            class="max-h-full max-w-full object-contain"
+          />
+        </div>
+      {:else}
+        <iframe src={toEmbedUrl(active.pdf)} title={active.title} class="min-h-0 w-full flex-1"
+        ></iframe>
+      {/if}
     </div>
   {/if}
 </dialog>

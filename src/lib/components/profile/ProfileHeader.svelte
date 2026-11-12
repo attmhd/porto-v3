@@ -30,7 +30,7 @@
         data-testid="thought-bubble"
         class="max-w-[calc(100vw-10rem)] rounded-2xl rounded-bl-md border border-gray-200 bg-white px-3.5 py-2 text-xs font-medium whitespace-normal text-gray-800 shadow-sm sm:max-w-none sm:whitespace-nowrap"
       >
-        Hire me bang 🙏
+        On a break till Dec. Open for early 2027 jobs.
       </div>
       <span
         data-testid="thought-dot-lg"

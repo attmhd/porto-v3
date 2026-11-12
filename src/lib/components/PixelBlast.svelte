@@ -601,18 +601,18 @@
         textContext.textAlign = 'center';
         textContext.textBaseline = 'middle';
         textContext.fillStyle = '#fff';
-        for (const [word, x] of [
-          ['INFO', gutter / 2],
-          ['LOKER', width - gutter / 2],
-        ] as const) {
-          [...word].forEach((letter, index) => {
-            textContext.fillText(
-              letter,
-              x,
-              height / 2 + (index - (word.length - 1) / 2) * lineHeight,
-            );
-          });
-        }
+        // for (const [word, x] of [
+        //   ['INFO', gutter / 2],
+        //   ['LOKER', width - gutter / 2],
+        // ] as const) {
+        //   [...word].forEach((letter, index) => {
+        //     textContext.fillText(
+        //       letter,
+        //       x,
+        //       height / 2 + (index - (word.length - 1) / 2) * lineHeight,
+        //     );
+        //   });
+        // }
       }
       textTexture.needsUpdate = true;
 

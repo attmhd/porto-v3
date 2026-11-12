@@ -8,11 +8,11 @@ export type Certificate = {
   image?: string;
   /** Local path ('/certificates/x.pdf') or https URL; Drive share links are auto-converted */
   pdf?: string;
+  thumbnail?: string;
   skills: string[];
 };
 
 export const certificates: Certificate[] = [
-
   {
     id: 'dev-certified-machine-learning-tensorflow',
     title: 'Dev Certified for Machine Learning with TensorFlow',
@@ -42,6 +42,7 @@ export const certificates: Certificate[] = [
     issueDate: '12 Jul 2026',
     credentialUrl: 'https://www.dicoding.com/certificates/GRX5W742RZ0M',
     pdf: '/certificates/membangun-sistem-machine-learning.pdf',
+    thumbnail: '/certificates/previews/membangun-sistem-machine-learning.jpg',
     skills: ['Machine Learning', 'Python', 'Model Development'],
   },
   {
@@ -51,6 +52,7 @@ export const certificates: Certificate[] = [
     issueDate: '11 Jul 2026',
     credentialUrl: 'https://www.dicoding.com/certificates/6RPN7L1K4X2M',
     pdf: '/certificates/penerapan-ai-web.pdf',
+    thumbnail: '/certificates/previews/penerapan-ai-web.jpg',
     skills: ['Artificial Intelligence', 'Web Application', 'TensorFlow.js'],
   },
   {
@@ -60,6 +62,7 @@ export const certificates: Certificate[] = [
     issueDate: '10 Jul 2026',
     credentialUrl: 'https://www.dicoding.com/certificates/QLZ99LREDZ5D',
     pdf: '/certificates/pengembangan-gen-ai.pdf',
+    thumbnail: '/certificates/previews/pengembangan-gen-ai.jpg',
     skills: ['Generative AI', 'Large Language Models', 'Prompt Engineering'],
   },
   {
@@ -69,6 +72,7 @@ export const certificates: Certificate[] = [
     issueDate: '16 Oct 2024',
     credentialUrl: 'https://coursera.org/verify/specialization/S50WZI9OH8MW',
     pdf: '/certificates/Coursera S50WZI9OH8MW.pdf',
+    thumbnail: '/certificates/previews/Coursera S50WZI9OH8MW.jpg',
     skills: ['Machine Learning', 'Deep Learning', 'TensorFlow'],
   },
   {
@@ -78,6 +82,7 @@ export const certificates: Certificate[] = [
     issueDate: '29 Oct 2024',
     credentialUrl: 'https://coursera.org/verify/professional-cert/AP48WLAAEAR4',
     pdf: '/certificates/Coursera AP48WLAAEAR4.pdf',
+    thumbnail: '/certificates/previews/Coursera AP48WLAAEAR4.jpg',
     skills: ['Machine Learning', 'Deep Learning', 'TensorFlow'],
   },
   {
@@ -87,6 +92,7 @@ export const certificates: Certificate[] = [
     issueDate: '14 Sep 2024',
     credentialUrl: 'https://coursera.org/verify/2W0RMCC082CU',
     pdf: '/certificates/Coursera 2W0RMCC082CU.pdf',
+    thumbnail: '/certificates/previews/Coursera 2W0RMCC082CU.jpg',
     skills: ['Python', 'Operating System'],
   },
   {
@@ -96,6 +102,7 @@ export const certificates: Certificate[] = [
     issueDate: '7 May 2025',
     credentialUrl: 'https://coursera.org/verify/HPJ1XLP7BHDG',
     pdf: '/certificates/Coursera HPJ1XLP7BHDG.pdf',
+    thumbnail: '/certificates/previews/Coursera HPJ1XLP7BHDG.jpg',
     skills: ['Machine Learning', 'AWS SageMaker'],
   },
 ];
