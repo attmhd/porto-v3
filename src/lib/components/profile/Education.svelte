@@ -1,15 +1,9 @@
 <script lang="ts">
+  import CollapsibleSection from '../common/CollapsibleSection.svelte';
   import { education } from '$lib/data/education';
 </script>
 
-<section class="bg-white">
-  <div class="border-gray-300 px-7 py-5">
-    <h2 class="font-hand text-3xl leading-none text-black">
-      Education
-      <sup class="align-top font-hand text-sm text-gray-400">({education.length})</sup>
-    </h2>
-  </div>
-
+<CollapsibleSection title="Education" count={education.length}>
   <div>
     {#each education as item (item.institution)}
       <article class="border-t border-gray-300 px-7 py-7">
@@ -29,14 +23,22 @@
           <div class="min-w-0">
             <h3 class="text-xl font-semibold tracking-tight text-black">{item.institution}</h3>
             <p class="mt-2 text-lg font-medium text-black">{item.degree}</p>
-            <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-gray-500">
-              <span>{item.gpa}</span>
-              <span class="text-gray-300">|</span>
-              <span>{item.period}</span>
-            </div>
+            {#if item.gpa || item.period}
+              <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-gray-500">
+                {#if item.gpa}
+                  <span>{item.gpa}</span>
+                {/if}
+                {#if item.gpa && item.period}
+                  <span class="text-gray-300">|</span>
+                {/if}
+                {#if item.period}
+                  <span>{item.period}</span>
+                {/if}
+              </div>
+            {/if}
           </div>
         </div>
       </article>
     {/each}
   </div>
-</section>
+</CollapsibleSection>

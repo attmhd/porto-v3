@@ -49,3 +49,19 @@
 - [x] Task 46: Write failing test for remote pdf URLs and Drive embed conversion (TDD Red)
 - [x] Task 47: Implement toEmbedUrl and use it in CertificatesPage (TDD Green)
 - [x] Task 48: Restyle Open to Work bubble as bordered box; align certificate test with optional fields
+- [x] Task 49: Write failing test suite for detailed education entries, logo assets, and fallback icons (TDD Red)
+- [x] Task 50: Add school logo assets and expand education data in src/lib/data/education.ts (TDD Green)
+- [x] Task 51: Update Education.svelte to support optional metadata and icon fallback (TDD Green)
+- [x] Task 52: Verify education tests, svelte-check, and production build
+- [x] Task 53: Update education test suite to require general SD and TK logo assets (TDD Red)
+- [x] Task 54: Add logo-sd.webp and logo-tk.webp and update education.ts and Education.svelte (TDD Green)
+- [x] Task 55: Verify education tests, svelte-check, and production build
+- [x] Task 56: Replace logo-sd.webp with official red Sekolah Dasar badge logo and verify tests and build
+- [x] Task 57: Add failing test suite for new experience entries, logo assets, and optional metadata in Experience (TDD Red)
+- [x] Task 58: Add PT SMART Tbk. and Mayora Group (PT Kakao Mas Gemilang) logo assets and update src/lib/data/experience.ts (TDD Green)
+- [x] Task 59: Update Experience.svelte to handle optional period, type, description, and tags cleanly (TDD Green)
+- [x] Task 60: Verify experience tests, svelte-check, and production build
+- [x] Task 61: Write failing test suite for CollapsibleSection hide/expand behavior in Experience and Education (TDD Red)
+- [x] Task 62: Create shared CollapsibleSection.svelte in src/lib/components/common/ (TDD Green)
+- [x] Task 63: Integrate CollapsibleSection into Experience.svelte and Education.svelte (TDD Green)
+- [x] Task 64: Verify tests, svelte-check, and production build

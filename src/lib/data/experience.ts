@@ -4,14 +4,17 @@ import logoStifarm from '$lib/assets/images/logo-stifarm.webp';
 import logoAppskep from '$lib/assets/images/logo-appskep.webp';
 import logoBangkit from '$lib/assets/images/logo-bangkit.webp';
 import logoNatta from '$lib/assets/images/natta-icon.png';
+import logoItp from '$lib/assets/images/logo-itp.png';
+import logoSmart from '$lib/assets/images/logo-smart.webp';
+import logoMayora from '$lib/assets/images/logo-mayora.webp';
 
 export type ExperienceItem = {
   company: string;
   role: string;
-  type: string;
-  period: string;
-  description: string[];
-  tags: string[];
+  type?: string;
+  period?: string;
+  description?: string[];
+  tags?: string[];
   logo?: string;
 };
 
@@ -91,5 +94,26 @@ export const experiences: ExperienceItem[] = [
       'Bangkit was supported by industry founding partners including GoTo and Traveloka.',
     ],
     tags: ['Python', 'Machine Learning', 'Computer Vision', 'TensorFlow', 'Image Classification'],
+  },
+  {
+    company: 'Institut Teknologi Padang',
+    role: 'Lab Assistant',
+    type: 'Padang, Indonesia',
+    period: 'Feb 2023 - Jun 2023',
+    logo: logoItp,
+  },
+  {
+    company: 'PT SMART Tbk.',
+    role: 'Marsho Operator',
+    type: 'Marunda, Indonesia',
+    period: 'Mar 2019 - Aug 2022',
+    logo: logoSmart,
+  },
+  {
+    company: 'PT Kakao Mas Gemilang',
+    role: 'Student Intern',
+    type: 'Batu Ceper, Indonesia',
+    period: 'Sep 2017 - Nov 2017',
+    logo: logoMayora,
   },
 ];

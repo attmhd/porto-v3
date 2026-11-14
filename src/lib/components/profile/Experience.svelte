@@ -1,5 +1,6 @@
 <script lang="ts">
   import Icon from '@iconify/svelte';
+  import CollapsibleSection from '../common/CollapsibleSection.svelte';
   import { experiences } from '$lib/data/experience';
 
   let activeIndex = $state<number | null>(null);
@@ -9,18 +10,7 @@
   }
 </script>
 
-<section class="bg-white">
-  <!-- Section Header -->
-  <div class=" border-gray-300 px-7 py-5">
-    <h2 class="font-hand text-3xl leading-none text-black">
-      Experience
-
-      <sup class=" align-top font-hand text-sm text-gray-400">
-        ({experiences.length})
-      </sup>
-    </h2>
-  </div>
-
+<CollapsibleSection title="Experience" count={experiences.length}>
   <!-- Experience List -->
   <div>
     {#each experiences as experience, index}
@@ -66,76 +56,90 @@
 
             <!-- Role Content -->
             <div class="min-w-0 flex-1 pl-5">
-              <!-- Clickable Role -->
-              <button
-                type="button"
-                class="flex w-full items-center gap-3 text-left"
-                onclick={() => toggleExperience(index)}
-                aria-expanded={activeIndex === index}
-              >
-                <span class="text-lg font-medium text-black">
+              <!-- Role Header (clickable when description exists) -->
+              {#if experience.description?.length}
+                <button
+                  type="button"
+                  class="flex w-full items-center gap-3 text-left"
+                  onclick={() => toggleExperience(index)}
+                  aria-expanded={activeIndex === index}
+                >
+                  <span class="text-lg font-medium text-black">
+                    {experience.role}
+                  </span>
+
+                  <Icon
+                    icon="lucide:chevron-down"
+                    width={21}
+                    height={21}
+                    class={`ml-auto shrink-0 text-gray-500 transition-transform duration-300 ${
+                      activeIndex === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+              {:else}
+                <span class="block text-lg font-medium text-black">
                   {experience.role}
                 </span>
-
-                <Icon
-                  icon="lucide:chevron-down"
-                  width={21}
-                  height={21}
-                  class={`ml-auto shrink-0 text-gray-500 transition-transform duration-300 ${
-                    activeIndex === index ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
+              {/if}
 
               <!-- Metadata -->
-              <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-gray-500">
-                <span>
-                  {experience.type}
-                </span>
+              {#if experience.type || experience.period}
+                <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-gray-500">
+                  {#if experience.type}
+                    <span>{experience.type}</span>
+                  {/if}
 
-                <span class="text-gray-300"> | </span>
+                  {#if experience.type && experience.period}
+                    <span class="text-gray-300"> | </span>
+                  {/if}
 
-                <span>
-                  {experience.period}
-                </span>
-              </div>
+                  {#if experience.period}
+                    <span>{experience.period}</span>
+                  {/if}
+                </div>
+              {/if}
 
               <!-- TECH STACK -->
-              <div class="mt-4 flex flex-wrap gap-2">
-                {#each experience.tags as tag}
-                  <span
-                    class="inline-flex items-center rounded-xl border border-gray-200 bg-gray-50 px-3 py-1.5 font-mono text-sm text-gray-600"
-                  >
-                    {tag}
-                  </span>
-                {/each}
-              </div>
+              {#if experience.tags?.length}
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {#each experience.tags as tag}
+                    <span
+                      class="inline-flex items-center rounded-xl border border-gray-200 bg-gray-50 px-3 py-1.5 font-mono text-sm text-gray-600"
+                    >
+                      {tag}
+                    </span>
+                  {/each}
+                </div>
+              {/if}
 
               <!-- Description -->
-              <div
-                class="grid transition-[grid-template-rows] duration-500 ease-in-out"
-                class:grid-rows-1={activeIndex === index}
-                class:grid-rows-0={activeIndex !== index}
-              >
-                <div class="overflow-hidden">
-                  <div class="pt-5">
-                    <ul
-                      class="max-w-2xl list-disc space-y-3 pl-5 text-base leading-7 text-gray-600 marker:text-gray-400"
-                    >
-                      {#each experience.description as point}
-                        <li class="pl-1">{point}</li>
-                      {/each}
-                    </ul>
+              {#if experience.description?.length}
+                <div
+                  class="grid transition-[grid-template-rows] duration-500 ease-in-out"
+                  class:grid-rows-1={activeIndex === index}
+                  class:grid-rows-0={activeIndex !== index}
+                >
+                  <div class="overflow-hidden">
+                    <div class="pt-5">
+                      <ul
+                        class="max-w-2xl list-disc space-y-3 pl-5 text-base leading-7 text-gray-600 marker:text-gray-400"
+                      >
+                        {#each experience.description as point}
+                          <li class="pl-1">{point}</li>
+                        {/each}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
+              {/if}
             </div>
           </div>
         </div>
       </article>
     {/each}
   </div>
-</section>
+</CollapsibleSection>
 
 <style>
   .grid-rows-0 {
