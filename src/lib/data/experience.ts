@@ -102,18 +102,18 @@ export const experiences: ExperienceItem[] = [
     period: 'Feb 2023 - Jun 2023',
     logo: logoItp,
   },
-  {
-    company: 'PT SMART Tbk.',
-    role: 'Marsho Operator',
-    type: 'Marunda, Indonesia',
-    period: 'Mar 2019 - Aug 2022',
-    logo: logoSmart,
-  },
-  {
-    company: 'PT Kakao Mas Gemilang',
-    role: 'Student Intern',
-    type: 'Batu Ceper, Indonesia',
-    period: 'Sep 2017 - Nov 2017',
-    logo: logoMayora,
-  },
+  // {
+  //   company: 'PT SMART Tbk.',
+  //   role: 'Marsho Operator',
+  //   type: 'Marunda, Indonesia',
+  //   period: 'Mar 2019 - Aug 2022',
+  //   logo: logoSmart,
+  // },
+  // {
+  //   company: 'PT Kakao Mas Gemilang',
+  //   role: 'Student Intern',
+  //   type: 'Batu Ceper, Indonesia',
+  //   period: 'Sep 2017 - Nov 2017',
+  //   logo: logoMayora,
+  // },
 ];

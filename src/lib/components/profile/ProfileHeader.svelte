@@ -103,7 +103,7 @@
         <div class="flex items-center gap-2">
           <Icon icon="lucide:map-pin" width={18} height={18} />
 
-          <span>Mars</span>
+          <span>Padang, West Sumatera</span>
         </div>
       </div>
 
