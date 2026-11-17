@@ -44,18 +44,18 @@ export const experiences: ExperienceItem[] = [
     ],
     tags: ['AWS', 'Cloud Computing', 'Linux', 'Networking', 'Python', 'Databases'],
   },
-  {
-    company: 'Natta Std',
-    role: 'Product Wizard',
-    type: 'Padang, Indonesia',
-    logo: logoNatta,
-    period: 'Oct 2025 - Present',
-    description: [
-      'Currently developing Natta POS, Natta NFC, and Natta SBC.',
-      'Contribute to product planning and hands-on software development alongside the team.',
-    ],
-    tags: ['Product Development', 'Software Development', 'POS', 'NFC'],
-  },
+  // {
+  //   company: 'Natta Std',
+  //   role: 'Product Wizard',
+  //   type: 'Padang, Indonesia',
+  //   logo: logoNatta,
+  //   period: 'Oct 2025 - Present',
+  //   description: [
+  //     'Currently developing Natta POS, Natta NFC, and Natta SBC.',
+  //     'Contribute to product planning and hands-on software development alongside the team.',
+  //   ],
+  //   tags: ['Product Development', 'Software Development', 'POS', 'NFC'],
+  // },
   {
     company: 'STIFARM Padang',
     role: 'Android Developer',
